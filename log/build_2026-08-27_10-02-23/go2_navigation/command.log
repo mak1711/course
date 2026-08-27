@@ -1,0 +1,6 @@
+Invoking command in '/home/kan/lab/course/build/go2_navigation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/src/go2_navigation -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/install/go2_navigation
+Invoked command in '/home/kan/lab/course/build/go2_navigation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/src/go2_navigation -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/install/go2_navigation
+Invoking command in '/home/kan/lab/course/build/go2_navigation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/build/go2_navigation -- -j8 -l8
+Invoked command in '/home/kan/lab/course/build/go2_navigation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/build/go2_navigation -- -j8 -l8
+Invoking command in '/home/kan/lab/course/build/go2_navigation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/build/go2_navigation
+Invoked command in '/home/kan/lab/course/build/go2_navigation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/build/go2_navigation

@@ -1,0 +1,593 @@
+[0.011s] Invoking command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/yolo_ros/yolo_msgs -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs
+[0.056s] -- The C compiler identification is GNU 11.4.0
+[0.107s] -- The CXX compiler identification is GNU 11.4.0
+[0.114s] -- Detecting C compiler ABI info
+[0.173s] -- Detecting C compiler ABI info - done
+[0.179s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[0.179s] -- Detecting C compile features
+[0.180s] -- Detecting C compile features - done
+[0.183s] -- Detecting CXX compiler ABI info
+[0.240s] -- Detecting CXX compiler ABI info - done
+[0.247s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[0.247s] -- Detecting CXX compile features
+[0.247s] -- Detecting CXX compile features - done
+[0.250s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.600s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.681s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.684s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.692s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.746s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.785s] -- Found std_msgs: 4.9.0 (/opt/ros/humble/share/std_msgs/cmake)
+[0.835s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.119s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.326s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.606s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.626s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.627s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.650s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.650s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.651s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.651s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.669s] -- Found PythonExtra: .so  
+[1.723s] -- Configuring done
+[1.765s] -- Generating done
+[1.776s] -- Build files have been written to: /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs
+[1.785s] Invoked command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/yolo_ros/yolo_msgs -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs
+[1.786s] Invoking command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs -- -j8 -l8
+[1.825s] [  1%] Generating C code for ROS interfaces
+[1.835s] [  1%] Generating C++ code for ROS interfaces
+[1.836s] [  1%] Built target ament_cmake_python_copy_yolo_msgs
+[2.056s] running egg_info
+[2.076s] creating yolo_msgs.egg-info
+[2.076s] writing yolo_msgs.egg-info/PKG-INFO
+[2.076s] writing dependency_links to yolo_msgs.egg-info/dependency_links.txt
+[2.076s] writing top-level names to yolo_msgs.egg-info/top_level.txt
+[2.076s] writing manifest file 'yolo_msgs.egg-info/SOURCES.txt'
+[2.138s] reading manifest file 'yolo_msgs.egg-info/SOURCES.txt'
+[2.138s] writing manifest file 'yolo_msgs.egg-info/SOURCES.txt'
+[2.166s] [  1%] Built target ament_cmake_python_build_yolo_msgs_egg
+[2.961s] [  1%] Built target yolo_msgs__cpp
+[2.978s] [  2%] Generating C++ type support dispatch for ROS interfaces
+[2.980s] [  3%] Generating C++ type support for eProsima Fast-RTPS
+[2.986s] [  3%] Generating C++ introspection for ROS interfaces
+[3.213s] [  4%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/point2_d__functions.c.o
+[3.223s] [  4%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/vector2__functions.c.o
+[3.228s] [  5%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/pose2_d__functions.c.o
+[3.231s] [  6%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/bounding_box2_d__functions.c.o
+[3.234s] [  7%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/bounding_box3_d__functions.c.o
+[3.273s] [  8%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/mask__functions.c.o
+[3.281s] [  8%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/key_point2_d__functions.c.o
+[3.291s] [  9%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/key_point2_d_array__functions.c.o
+[3.295s] [ 10%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/key_point3_d__functions.c.o
+[3.310s] [ 11%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/key_point3_d_array__functions.c.o
+[3.314s] [ 12%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/detection__functions.c.o
+[3.348s] [ 12%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/msg/detail/detection_array__functions.c.o
+[3.348s] [ 13%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_c.dir/rosidl_generator_c/yolo_msgs/srv/detail/set_classes__functions.c.o
+[3.435s] [ 14%] Linking C shared library libyolo_msgs__rosidl_generator_c.so
+[3.512s] [ 14%] Built target yolo_msgs__rosidl_generator_c
+[3.540s] [ 15%] Generating C introspection for ROS interfaces
+[3.540s] [ 16%] Generating C type support for eProsima Fast-RTPS
+[3.541s] [ 17%] Generating C type support dispatch for ROS interfaces
+[5.115s] [ 17%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/point2_d__type_support.cpp.o
+[5.160s] [ 18%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/vector2__type_support.cpp.o
+[5.185s] [ 19%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/pose2_d__type_support.cpp.o
+[5.198s] [ 20%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/bounding_box2_d__type_support.cpp.o
+[5.206s] [ 21%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/bounding_box3_d__type_support.cpp.o
+[5.208s] [ 21%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/mask__type_support.cpp.o
+[5.262s] [ 22%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/key_point2_d__type_support.cpp.o
+[5.297s] [ 23%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/key_point2_d_array__type_support.cpp.o
+[5.308s] [ 25%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/key_point3_d__type_support.cpp.o
+[5.308s] [ 25%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/key_point3_d_array__type_support.cpp.o
+[5.339s] [ 25%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/detection__type_support.cpp.o
+[5.348s] [ 26%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/msg/detection_array__type_support.cpp.o
+[5.356s] [ 27%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/point2_d__type_support.cpp.o
+[5.374s] [ 28%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/vector2__type_support.cpp.o
+[5.381s] [ 28%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/pose2_d__type_support.cpp.o
+[5.384s] [ 29%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yolo_msgs/srv/set_classes__type_support.cpp.o
+[5.417s] [ 30%] Linking CXX shared library libyolo_msgs__rosidl_typesupport_c.so
+[5.432s] [ 31%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/point2_d__type_support.c.o
+[5.452s] [ 32%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/bounding_box3_d__type_support.cpp.o
+[5.452s] [ 33%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/bounding_box2_d__type_support.cpp.o
+[5.475s] [ 34%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/pose2_d__type_support.c.o
+[5.475s] [ 34%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/vector2__type_support.c.o
+[5.486s] [ 35%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/bounding_box2_d__type_support.c.o
+[5.498s] [ 36%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/mask__type_support.cpp.o
+[5.544s] [ 37%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/key_point2_d__type_support.cpp.o
+[5.547s] [ 38%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/bounding_box3_d__type_support.c.o
+[5.554s] [ 39%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/mask__type_support.c.o
+[5.555s] [ 39%] Built target yolo_msgs__rosidl_typesupport_c
+[5.573s] [ 39%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/key_point2_d_array__type_support.cpp.o
+[5.578s] [ 40%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/key_point3_d__type_support.cpp.o
+[5.589s] [ 41%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/key_point3_d_array__type_support.cpp.o
+[5.589s] [ 42%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/key_point2_d__type_support.c.o
+[5.593s] [ 43%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/detection__type_support.cpp.o
+[5.612s] [ 43%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/key_point2_d_array__type_support.c.o
+[5.618s] [ 44%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/key_point3_d__type_support.c.o
+[5.625s] [ 44%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/srv/set_classes__type_support.cpp.o
+[5.633s] [ 45%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yolo_msgs/msg/detection_array__type_support.cpp.o
+[5.658s] [ 46%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/key_point3_d_array__type_support.c.o
+[5.662s] [ 47%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/detection__type_support.c.o
+[5.673s] [ 48%] Linking CXX shared library libyolo_msgs__rosidl_typesupport_cpp.so
+[5.685s] [ 49%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/msg/detail/detection_array__type_support.c.o
+[5.688s] [ 49%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yolo_msgs/srv/detail/set_classes__type_support.c.o
+[5.735s] [ 50%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/point2_d__type_support.cpp.o
+[5.741s] [ 51%] Linking C shared library libyolo_msgs__rosidl_typesupport_introspection_c.so
+[5.742s] [ 51%] Built target yolo_msgs__rosidl_typesupport_cpp
+[5.745s] [ 52%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/vector2__type_support.cpp.o
+[5.759s] [ 53%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/pose2_d__type_support.cpp.o
+[5.774s] [ 54%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/bounding_box2_d__type_support.cpp.o
+[5.778s] [ 54%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/bounding_box3_d__type_support.cpp.o
+[5.808s] [ 55%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/mask__type_support.cpp.o
+[5.814s] [ 55%] Built target yolo_msgs__rosidl_typesupport_introspection_c
+[5.816s] [ 56%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/key_point2_d__type_support.cpp.o
+[5.831s] [ 57%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/key_point2_d_array__type_support.cpp.o
+[5.839s] [ 58%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/key_point3_d__type_support.cpp.o
+[5.842s] [ 58%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/key_point3_d_array__type_support.cpp.o
+[5.858s] [ 59%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/detection_array__type_support.cpp.o
+[5.860s] [ 60%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/msg/detail/detection__type_support.cpp.o
+[5.876s] [ 61%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yolo_msgs/srv/detail/set_classes__type_support.cpp.o
+[5.908s] [ 62%] Linking CXX shared library libyolo_msgs__rosidl_typesupport_introspection_cpp.so
+[5.936s] [ 63%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/point2_d__type_support.cpp.o
+[5.948s] [ 64%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/vector2__type_support.cpp.o
+[5.948s] [ 64%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/bounding_box2_d__type_support.cpp.o
+[5.948s] [ 65%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/bounding_box3_d__type_support.cpp.o
+[5.948s] [ 66%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/pose2_d__type_support.cpp.o
+[5.964s] [ 67%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/mask__type_support.cpp.o
+[5.992s] [ 68%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/key_point2_d__type_support.cpp.o
+[6.006s] [ 69%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/key_point2_d_array__type_support.cpp.o
+[6.014s] [ 69%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/key_point3_d__type_support.cpp.o
+[6.045s] [ 70%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/key_point3_d_array__type_support.cpp.o
+[6.050s] [ 71%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/detection__type_support.cpp.o
+[6.050s] [ 72%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/msg/detail/dds_fastrtps/detection_array__type_support.cpp.o
+[6.094s] [ 73%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yolo_msgs/srv/detail/dds_fastrtps/set_classes__type_support.cpp.o
+[6.139s] [ 73%] Built target yolo_msgs__rosidl_typesupport_introspection_cpp
+[6.159s] [ 73%] Linking CXX shared library libyolo_msgs__rosidl_typesupport_fastrtps_cpp.so
+[6.282s] [ 74%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/bounding_box2_d__type_support_c.cpp.o
+[6.283s] [ 75%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/vector2__type_support_c.cpp.o
+[6.283s] [ 75%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/point2_d__type_support_c.cpp.o
+[6.283s] [ 76%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/pose2_d__type_support_c.cpp.o
+[6.283s] [ 77%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/mask__type_support_c.cpp.o
+[6.291s] [ 77%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/key_point2_d__type_support_c.cpp.o
+[6.293s] [ 78%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/bounding_box3_d__type_support_c.cpp.o
+[6.295s] [ 78%] Built target yolo_msgs__rosidl_typesupport_fastrtps_cpp
+[6.299s] [ 79%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/key_point2_d_array__type_support_c.cpp.o
+[6.311s] [ 80%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/detection__type_support_c.cpp.o
+[6.311s] [ 81%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/key_point3_d_array__type_support_c.cpp.o
+[6.312s] [ 82%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/key_point3_d__type_support_c.cpp.o
+[6.328s] [ 82%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/msg/detail/detection_array__type_support_c.cpp.o
+[6.335s] [ 83%] Building CXX object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yolo_msgs/srv/detail/set_classes__type_support_c.cpp.o
+[6.385s] [ 84%] Linking CXX shared library libyolo_msgs__rosidl_typesupport_fastrtps_c.so
+[6.458s] [ 84%] Built target yolo_msgs__rosidl_typesupport_fastrtps_c
+[6.475s] [ 84%] Built target yolo_msgs
+[6.491s] [ 85%] Generating Python code for ROS interfaces
+[8.056s] [ 85%] Built target yolo_msgs__py
+[8.075s] [ 89%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_bounding_box3_d_s.c.o
+[8.075s] [ 89%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_pose2_d_s.c.o
+[8.075s] [ 89%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_bounding_box2_d_s.c.o
+[8.075s] [ 89%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_point2_d_s.c.o
+[8.075s] [ 89%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_vector2_s.c.o
+[8.078s] [ 90%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_mask_s.c.o
+[8.079s] [ 91%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_key_point2_d_array_s.c.o
+[8.081s] [ 91%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_key_point2_d_s.c.o
+[8.136s] [ 92%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/srv/_set_classes_s.c.o
+[8.136s] [ 94%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_detection_s.c.o
+[8.136s] [ 94%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_detection_array_s.c.o
+[8.136s] [ 94%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_key_point3_d_array_s.c.o
+[8.136s] [ 95%] Building C object CMakeFiles/yolo_msgs__rosidl_generator_py.dir/rosidl_generator_py/yolo_msgs/msg/_key_point3_d_s.c.o
+[8.149s] [ 96%] Linking C shared library rosidl_generator_py/yolo_msgs/libyolo_msgs__rosidl_generator_py.so
+[8.188s] [ 96%] Built target yolo_msgs__rosidl_generator_py
+[8.203s] [ 98%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[8.203s] [ 98%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_c.c.o
+[8.204s] [ 99%] Building C object CMakeFiles/yolo_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[8.215s] [100%] Linking C shared library rosidl_generator_py/yolo_msgs/yolo_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[8.217s] [100%] Linking C shared library rosidl_generator_py/yolo_msgs/yolo_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[8.217s] [100%] Linking C shared library rosidl_generator_py/yolo_msgs/yolo_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[8.251s] [100%] Built target yolo_msgs__rosidl_typesupport_c__pyext
+[8.251s] [100%] Built target yolo_msgs__rosidl_typesupport_introspection_c__pyext
+[8.260s] [100%] Built target yolo_msgs__rosidl_typesupport_fastrtps_c__pyext
+[8.269s] Invoked command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs -- -j8 -l8
+[8.270s] Invoking command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs
+[8.276s] -- Install configuration: ""
+[8.276s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/ament_index/resource_index/rosidl_interfaces/yolo_msgs
+[8.276s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__functions.c
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__functions.c
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__functions.c
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__functions.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__type_support.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__type_support.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__functions.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__struct.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__functions.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__functions.c
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__type_support.h
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__functions.c
+[8.277s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__type_support.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__type_support.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__functions.c
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__functions.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__functions.c
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__functions.c
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__functions.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__struct.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__functions.c
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__type_support.h
+[8.278s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__functions.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__type_support.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__functions.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__type_support.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__type_support.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__functions.c
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__functions.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__functions.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__struct.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__type_support.h
+[8.279s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__functions.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__functions.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__functions.c
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__functions.c
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__struct.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__functions.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__struct.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__type_support.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__type_support.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__struct.h
+[8.280s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/vector2.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/pose2_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point3_d_array.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/point2_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detection_array.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point2_d_array.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point3_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/bounding_box2_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point2_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/mask.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detection.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/bounding_box3_d.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/rosidl_generator_c__visibility_control.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__functions.c
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__type_support.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__struct.h
+[8.281s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__functions.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/set_classes.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/library_path.sh
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/library_path.dsv
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_generator_c.so
+[8.282s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_generator_c.so" to ""
+[8.282s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.282s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.282s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__rosidl_typesupport_fastrtps_c.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__rosidl_typesupport_fastrtps_c.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__rosidl_typesupport_fastrtps_c.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__rosidl_typesupport_fastrtps_c.h
+[8.282s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__rosidl_typesupport_fastrtps_c.h
+[8.283s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__rosidl_typesupport_fastrtps_c.h
+[8.283s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__rosidl_typesupport_fastrtps_c.h
+[8.283s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_c.h
+[8.283s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__rosidl_typesupport_fastrtps_c.h
+[8.283s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__rosidl_typesupport_fastrtps_c.h
+[8.284s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__rosidl_typesupport_fastrtps_c.h
+[8.284s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__rosidl_typesupport_fastrtps_c.h
+[8.284s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[8.284s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.285s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__rosidl_typesupport_fastrtps_c.h
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_fastrtps_c.so
+[8.285s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[8.285s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.285s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.285s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__rosidl_typesupport_introspection_c.h
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__rosidl_typesupport_introspection_c.h
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__type_support.c
+[8.285s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__rosidl_typesupport_introspection_c.h
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__type_support.c
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[8.286s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.286s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.286s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__type_support.c
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__rosidl_typesupport_introspection_c.h
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_introspection_c.so
+[8.287s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_introspection_c.so" to ""
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_c.so
+[8.287s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_c.so" to ""
+[8.287s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.287s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/point2_d.hpp
+[8.287s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__type_support.hpp
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__type_support.hpp
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__traits.hpp
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__traits.hpp
+[8.287s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__struct.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__type_support.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__builder.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__struct.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__type_support.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__struct.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__builder.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__builder.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__builder.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__traits.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__type_support.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__type_support.hpp
+[8.288s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__type_support.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__type_support.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__traits.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__builder.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__builder.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__type_support.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__type_support.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__type_support.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__builder.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__struct.hpp
+[8.289s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__traits.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__builder.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__builder.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__struct.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__builder.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__builder.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__type_support.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__traits.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__struct.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__builder.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__struct.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point2_d.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/bounding_box2_d.hpp
+[8.290s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point2_d_array.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/mask.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/bounding_box3_d.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point3_d_array.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/key_point3_d.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detection.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detection_array.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/pose2_d.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/vector2.hpp
+[8.291s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.291s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__traits.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__struct.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__type_support.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__builder.hpp
+[8.291s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/set_classes.hpp
+[8.292s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.292s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.292s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/dds_fastrtps
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__rosidl_typesupport_fastrtps_cpp.hpp
+[8.292s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__rosidl_typesupport_fastrtps_cpp.hpp
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[8.293s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.293s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/dds_fastrtps
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__rosidl_typesupport_fastrtps_cpp.hpp
+[8.293s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_fastrtps_cpp.so
+[8.293s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[8.293s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs
+[8.294s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg
+[8.294s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__type_support.cpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d_array__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__type_support.cpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d_array__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__rosidl_typesupport_introspection_cpp.hpp
+[8.294s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__rosidl_typesupport_introspection_cpp.hpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/mask__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point3_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/point2_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/vector2__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box2_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/pose2_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/bounding_box3_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection_array__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/key_point2_d__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/msg/detail/detection__type_support.cpp
+[8.295s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv
+[8.295s] -- Up-to-date: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__rosidl_typesupport_introspection_cpp.hpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/include/yolo_msgs/yolo_msgs/srv/detail/set_classes__type_support.cpp
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_introspection_cpp.so
+[8.295s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_cpp.so
+[8.295s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_typesupport_cpp.so" to ""
+[8.295s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/pythonpath.sh
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/pythonpath.dsv
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs-4.6.1-py3.10.egg-info
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs-4.6.1-py3.10.egg-info/dependency_links.txt
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs-4.6.1-py3.10.egg-info/SOURCES.txt
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs-4.6.1-py3.10.egg-info/PKG-INFO
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs-4.6.1-py3.10.egg-info/top_level.txt
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_c.c
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/_yolo_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[8.296s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/libyolo_msgs__rosidl_generator_py.so
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/__init__.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_point2_d.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_pose2_d_s.c
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection_s.c
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection_array.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d_array_s.c
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d_array.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_vector2.py
+[8.297s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box3_d.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box2_d.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_mask.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_point2_d_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d_array_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box2_d_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box3_d_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d_array.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/__init__.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_pose2_d.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d.py
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_mask_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection_array_s.c
+[8.298s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d_s.c
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_vector2_s.c
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv/_set_classes.py
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv/_set_classes_s.c
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv/__init__.py
+[8.299s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[8.339s] Listing '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/__init__.py'...
+[8.339s] Listing '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/__init__.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box2_d.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_bounding_box3_d.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_detection_array.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point2_d_array.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_key_point3_d_array.py'...
+[8.339s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_mask.py'...
+[8.340s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_point2_d.py'...
+[8.340s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_pose2_d.py'...
+[8.340s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/msg/_vector2.py'...
+[8.340s] Listing '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv'...
+[8.340s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv/__init__.py'...
+[8.340s] Compiling '/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/srv/_set_classes.py'...
+[8.344s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[8.344s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.344s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[8.344s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.344s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[8.345s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/local/lib/python3.10/dist-packages/yolo_msgs/yolo_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[8.345s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_generator_py.so
+[8.345s] -- Set runtime path of "/home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/lib/libyolo_msgs__rosidl_generator_py.so" to ""
+[8.345s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Point2D.idl
+[8.345s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Vector2.idl
+[8.345s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Pose2D.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/BoundingBox2D.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/BoundingBox3D.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Mask.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint2D.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint2DArray.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint3D.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint3DArray.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Detection.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/DetectionArray.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/srv/SetClasses.idl
+[8.346s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Point2D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Vector2.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Pose2D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/BoundingBox2D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/BoundingBox3D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Mask.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint2D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint2DArray.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint3D.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/KeyPoint3DArray.msg
+[8.347s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/Detection.msg
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/msg/DetectionArray.msg
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/srv/SetClasses.srv
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/srv/SetClasses_Request.msg
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/srv/SetClasses_Response.msg
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/ament_index/resource_index/package_run_dependencies/yolo_msgs
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/ament_index/resource_index/parent_prefix_path/yolo_msgs
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/ament_prefix_path.sh
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/ament_prefix_path.dsv
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/path.sh
+[8.348s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/environment/path.dsv
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/local_setup.bash
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/local_setup.sh
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/local_setup.zsh
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/local_setup.dsv
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/package.dsv
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/ament_index/resource_index/packages/yolo_msgs
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_generator_cExport.cmake
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_generator_cExport-noconfig.cmake
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[8.349s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_introspection_cExport.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_cExport.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_generator_cppExport.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[8.350s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_cppExport.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_generator_pyExport.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/export_yolo_msgs__rosidl_generator_pyExport-noconfig.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/rosidl_cmake-extras.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[8.351s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[8.352s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[8.352s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgsConfig.cmake
+[8.352s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/cmake/yolo_msgsConfig-version.cmake
+[8.352s] -- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/yolo_msgs/share/yolo_msgs/package.xml
+[8.354s] Invoked command in '/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/yolo_msgs

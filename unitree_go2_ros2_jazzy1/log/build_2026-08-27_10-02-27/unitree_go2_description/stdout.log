@@ -1,0 +1,114 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/ccache/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kan/lab/course/unitree_go2_ros2_jazzy1/build/unitree_go2_description
+-- Install configuration: ""
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/default.sdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/TIbuilding.sdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/city.sdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/elevation.sdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/stairs.sdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Rejilla.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/blanc_caravista_rodapeu.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/gris_metal.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/negre.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Rodapeu.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Paves_2.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/tierra.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Cemento_suelo.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/madera_emergencia.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Ciment_caravista.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Panelado_paredes_2.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/CollisionPink.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/ventana_completa_ext.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/escalones_huella_2.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Ciment.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Baldosa_rampa_trasera.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Ciment_no_panel.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/azul_puerta.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/tapon_cromado.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/PuertaGrisMetalPomo.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/caravista_2.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/escalones.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Ascensor.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Bordillo.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Pavimento_porchecito.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Blanc_Rodapeu.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/madera_puerta.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Pavimento_calle_trasera.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Porcelanico.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Baldosa_acera_roja.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/verd_UJI.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/Rejilla_estreta.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/BlancVerdBlauRoigGroc.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/textures/rellano_escaleras.tga
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/collisions
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/collisions/WallsCollisionP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/collisions/GroundCollisionP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/collisions/DoorsLabCollisionP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/Ground.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/StairsPB.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/StairsP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/Ascensor.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/LabDoorRight.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/DoorsLabP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/Banc.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/WallsP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/WallsPB.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/PorchP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/Elevator.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/GroundP1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/worlds/meshes/LabDoorLeft.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/foot.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/L1_4D_Lidar.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/calf.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/hip.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/thigh.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/VLP16_base_1.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/hokuyo.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/calf_mirror.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/thigh_mirror.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/trunk.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/VLP16_base_2.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/meshes/VLP16_scan.dae
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/materials.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/leg.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/transmission.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/const.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/velodyne.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/unitree_go2_robot.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/unitree_go2_gazebo.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/urdf/lidar_4D_lidar.xacro
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/ament_index/resource_index/package_run_dependencies/unitree_go2_description
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/ament_index/resource_index/parent_prefix_path/unitree_go2_description
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/environment/ament_prefix_path.sh
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/environment/ament_prefix_path.dsv
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/environment/path.sh
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/environment/path.dsv
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/local_setup.bash
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/local_setup.sh
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/local_setup.zsh
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/local_setup.dsv
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/package.dsv
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/ament_index/resource_index/packages/unitree_go2_description
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/cmake/unitree_go2_descriptionConfig.cmake
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/cmake/unitree_go2_descriptionConfig-version.cmake
+-- Installing: /home/kan/lab/course/unitree_go2_ros2_jazzy1/install/unitree_go2_description/share/unitree_go2_description/package.xml

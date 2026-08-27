@@ -1,0 +1,36 @@
+[0.624s] Invoking command in '/home/kan/lab/course/src/go2_semantic_map': PYTHONPATH=/home/kan/lab/course/build/go2_semantic_map/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/go2_semantic_map build --build-base /home/kan/lab/course/build/go2_semantic_map/build install --record /home/kan/lab/course/build/go2_semantic_map/install.log --single-version-externally-managed install_data
+[0.770s] /home/kan/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:287: UserWarning: Unknown distribution option: 'tests_require'
+[0.770s]   warnings.warn(msg)
+[0.889s] running egg_info
+[0.907s] creating ../../build/go2_semantic_map/go2_semantic_map.egg-info
+[0.907s] writing ../../build/go2_semantic_map/go2_semantic_map.egg-info/PKG-INFO
+[0.907s] writing dependency_links to ../../build/go2_semantic_map/go2_semantic_map.egg-info/dependency_links.txt
+[0.907s] writing requirements to ../../build/go2_semantic_map/go2_semantic_map.egg-info/requires.txt
+[0.908s] writing top-level names to ../../build/go2_semantic_map/go2_semantic_map.egg-info/top_level.txt
+[0.908s] writing manifest file '../../build/go2_semantic_map/go2_semantic_map.egg-info/SOURCES.txt'
+[0.947s] reading manifest file '../../build/go2_semantic_map/go2_semantic_map.egg-info/SOURCES.txt'
+[0.948s] writing manifest file '../../build/go2_semantic_map/go2_semantic_map.egg-info/SOURCES.txt'
+[0.948s] running build
+[0.948s] running build_py
+[0.948s] creating /home/kan/lab/course/build/go2_semantic_map/build/lib/go2_semantic_map
+[0.948s] copying go2_semantic_map/places.py -> /home/kan/lab/course/build/go2_semantic_map/build/lib/go2_semantic_map
+[0.948s] copying go2_semantic_map/__init__.py -> /home/kan/lab/course/build/go2_semantic_map/build/lib/go2_semantic_map
+[0.949s] running install
+[0.970s] running install_lib
+[0.971s] creating /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map
+[0.971s] copying /home/kan/lab/course/build/go2_semantic_map/build/lib/go2_semantic_map/places.py -> /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map
+[0.971s] copying /home/kan/lab/course/build/go2_semantic_map/build/lib/go2_semantic_map/__init__.py -> /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map
+[0.971s] byte-compiling /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map/places.py to places.cpython-310.pyc
+[0.972s] byte-compiling /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map/__init__.py to __init__.cpython-310.pyc
+[0.972s] running install_data
+[0.972s] creating /home/kan/lab/course/install/go2_semantic_map/share/ament_index/resource_index/packages
+[0.972s] copying resource/go2_semantic_map -> /home/kan/lab/course/install/go2_semantic_map/share/ament_index/resource_index/packages
+[0.972s] copying package.xml -> /home/kan/lab/course/install/go2_semantic_map/share/go2_semantic_map
+[0.973s] creating /home/kan/lab/course/install/go2_semantic_map/share/go2_semantic_map/config
+[0.973s] copying config/places.yaml -> /home/kan/lab/course/install/go2_semantic_map/share/go2_semantic_map/config
+[0.973s] copying config/places_junior.yaml -> /home/kan/lab/course/install/go2_semantic_map/share/go2_semantic_map/config
+[0.973s] running install_egg_info
+[0.992s] Copying ../../build/go2_semantic_map/go2_semantic_map.egg-info to /home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages/go2_semantic_map-0.1.0-py3.10.egg-info
+[0.992s] running install_scripts
+[1.029s] writing list of installed files to '/home/kan/lab/course/build/go2_semantic_map/install.log'
+[1.046s] Invoked command in '/home/kan/lab/course/src/go2_semantic_map' returned '0': PYTHONPATH=/home/kan/lab/course/build/go2_semantic_map/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kan/lab/course/install/go2_semantic_map/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/go2_semantic_map build --build-base /home/kan/lab/course/build/go2_semantic_map/build install --record /home/kan/lab/course/build/go2_semantic_map/install.log --single-version-externally-managed install_data

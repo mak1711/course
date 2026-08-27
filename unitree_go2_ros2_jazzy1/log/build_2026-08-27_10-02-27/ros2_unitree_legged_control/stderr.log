@@ -1,0 +1,20 @@
+In file included from /home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/include/ros2_unitree_legged_control/ros2_unitree_legged_control.hpp:30,
+                 from /home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp:21:
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/build/ros2_unitree_legged_control/include/ros2_unitree_legged_control_parameters.hpp:1:184: note: ‘#pragma message: #include "ros2_unitree_legged_control_parameters.hpp" is deprecated. Use #include <ros2_unitree_legged_control/ros2_unitree_legged_control_parameters.hpp> instead.’
+    1 | #pragma message("#include \"ros2_unitree_legged_control_parameters.hpp\" is deprecated. Use #include <ros2_unitree_legged_control/ros2_unitree_legged_control_parameters.hpp> instead.")
+      |                                                                                                                                                                                        ^
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp: In member function ‘virtual controller_interface::CallbackReturn ros2_unitree_legged_control::UnitreeLeggedController::on_configure(const rclcpp_lifecycle::State&)’:
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp:170:35: warning: unused parameter ‘previous_state’ [-Wunused-parameter]
+  170 |   const rclcpp_lifecycle::State & previous_state)
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp: In member function ‘virtual controller_interface::CallbackReturn ros2_unitree_legged_control::UnitreeLeggedController::on_activate(const rclcpp_lifecycle::State&)’:
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp:219:35: warning: unused parameter ‘previous_state’ [-Wunused-parameter]
+  219 |   const rclcpp_lifecycle::State & previous_state)
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp: In member function ‘virtual controller_interface::return_type ros2_unitree_legged_control::UnitreeLeggedController::update(const rclcpp::Time&, const rclcpp::Duration&)’:
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp:266:24: warning: unused parameter ‘time’ [-Wunused-parameter]
+  266 |   const rclcpp::Time & time, const rclcpp::Duration & period)
+      |   ~~~~~~~~~~~~~~~~~~~~~^~~~
+/home/kan/lab/course/unitree_go2_ros2_jazzy1/unitree_go2_ros2_jazzy/ros2_unitree_legged_controller/src/ros2_unitree_legged_control.cpp:266:55: warning: unused parameter ‘period’ [-Wunused-parameter]
+  266 |   const rclcpp::Time & time, const rclcpp::Duration & period)
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~

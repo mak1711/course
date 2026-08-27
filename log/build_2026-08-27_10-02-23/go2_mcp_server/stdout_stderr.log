@@ -1,0 +1,42 @@
+/home/kan/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:287: UserWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+running egg_info
+creating ../../build/go2_mcp_server/go2_mcp_server.egg-info
+writing ../../build/go2_mcp_server/go2_mcp_server.egg-info/PKG-INFO
+writing dependency_links to ../../build/go2_mcp_server/go2_mcp_server.egg-info/dependency_links.txt
+writing entry points to ../../build/go2_mcp_server/go2_mcp_server.egg-info/entry_points.txt
+writing requirements to ../../build/go2_mcp_server/go2_mcp_server.egg-info/requires.txt
+writing top-level names to ../../build/go2_mcp_server/go2_mcp_server.egg-info/top_level.txt
+writing manifest file '../../build/go2_mcp_server/go2_mcp_server.egg-info/SOURCES.txt'
+reading manifest file '../../build/go2_mcp_server/go2_mcp_server.egg-info/SOURCES.txt'
+writing manifest file '../../build/go2_mcp_server/go2_mcp_server.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+copying go2_mcp_server/map_view.py -> /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+copying go2_mcp_server/server.py -> /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+copying go2_mcp_server/nav2_client.py -> /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+copying go2_mcp_server/__init__.py -> /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+copying go2_mcp_server/detection_store.py -> /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server
+running install
+running install_lib
+creating /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+copying /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server/map_view.py -> /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+copying /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server/server.py -> /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+copying /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server/nav2_client.py -> /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+copying /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server/__init__.py -> /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+copying /home/kan/lab/course/build/go2_mcp_server/build/lib/go2_mcp_server/detection_store.py -> /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server
+byte-compiling /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server/map_view.py to map_view.cpython-310.pyc
+byte-compiling /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server/server.py to server.cpython-310.pyc
+byte-compiling /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server/nav2_client.py to nav2_client.cpython-310.pyc
+byte-compiling /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server/detection_store.py to detection_store.cpython-310.pyc
+running install_data
+creating /home/kan/lab/course/install/go2_mcp_server/share/ament_index/resource_index/packages
+copying resource/go2_mcp_server -> /home/kan/lab/course/install/go2_mcp_server/share/ament_index/resource_index/packages
+copying package.xml -> /home/kan/lab/course/install/go2_mcp_server/share/go2_mcp_server
+running install_egg_info
+Copying ../../build/go2_mcp_server/go2_mcp_server.egg-info to /home/kan/lab/course/install/go2_mcp_server/lib/python3.10/site-packages/go2_mcp_server-0.1.0-py3.10.egg-info
+running install_scripts
+Installing go2_mcp_server script to /home/kan/lab/course/install/go2_mcp_server/lib/go2_mcp_server
+writing list of installed files to '/home/kan/lab/course/build/go2_mcp_server/install.log'

@@ -1,0 +1,391 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="default">
+    <physics name="1ms" type="bullet-featherstone">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    
+    <!-- Plugins -->
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    
+    <!-- Lights -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Box 1 -->
+    <model name="box1">
+      <pose>5 0 0.5 0 0 0</pose>
+      <link name="box_link">
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="box_collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="box_visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>1 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+    
+    <!-- Box 2 -->
+    <model name="box2">
+      <pose>-3 4 0.5 0 0 0.5</pose>
+      <link name="box_link">
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="box_collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="box_visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <specular>0 1 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+    
+    <!-- Box 3 -->
+    <model name="box3">
+      <pose>0 -5 0.5 0 0 0.7</pose>
+      <link name="box_link">
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="box_collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="box_visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <specular>0 0 1 1</specular>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+    
+    <!-- Cylinder 1 -->
+    <model name="cylinder1">
+      <pose>3 3 0.5 0 0 0</pose>
+      <link name="cylinder_link">
+        <inertial>
+          <inertia>
+            <ixx>0.1458</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.1458</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="cylinder_collision">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="cylinder_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <specular>1 1 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+    
+    <!-- Cylinder 2 -->
+    <model name="cylinder2">
+      <pose>-4 -3 0.5 0 0 0</pose>
+      <link name="cylinder_link">
+        <inertial>
+          <inertia>
+            <ixx>0.1458</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.1458</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="cylinder_collision">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="cylinder_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <specular>0 1 1 1</specular>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+
+    <!-- 2026-08-26: the world was previously just an open plane with 5 scattered
+         objects, no enclosure at all. Added walls to make it an actual two-room
+         layout (partitioned along y=-1, one 1.4m-wide doorway near x=0) so the
+         LLM/Nav2/detection pipeline has something closer to a real house/office to
+         navigate instead of open ground. Boundary chosen with real margin around all
+         5 existing objects (closest object edge is ~1m from its nearest wall).
+         Doorway is 1.4m wide, comfortably above 2x robot_radius (0.35m, see
+         go2_navigation's nav2_params_junior.yaml) plus inflation margin, and close to
+         a real interior doorway width. Walls are 1.2m tall, well above the 2D lidar's
+         mount height, so they show up properly in a SLAM re-map. Re-mapping the world
+         after this change is required: the existing junior_world_map.pgm/yaml
+         predates these walls and does not reflect them. -->
+    <!-- Exterior wall: north -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0.25 5.5 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12.65 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12.65 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior wall: south -->
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0.25 -6.5 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12.65 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12.65 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior wall: east -->
+    <model name="wall_east">
+      <static>true</static>
+      <pose>6.5 -0.5 0.6 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12.15 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12.15 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior wall: west -->
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-6 -0.5 0.6 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>12.15 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>12.15 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior dividing wall at y=-1, west segment (doorway gap x: -0.7 to 0.7) -->
+    <model name="wall_interior_west">
+      <static>true</static>
+      <pose>-3.35 -1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>5.3 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>5.3 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.75 0.75 0.7 1</ambient>
+            <diffuse>0.75 0.75 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior dividing wall at y=-1, east segment (doorway gap x: -0.7 to 0.7) -->
+    <model name="wall_interior_east">
+      <static>true</static>
+      <pose>3.6 -1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>5.8 0.15 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>5.8 0.15 1.2</size></box></geometry>
+          <material>
+            <ambient>0.75 0.75 0.7 1</ambient>
+            <diffuse>0.75 0.75 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

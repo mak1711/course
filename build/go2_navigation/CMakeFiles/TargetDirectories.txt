@@ -1,0 +1,9 @@
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/uninstall.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/go2_navigation_uninstall.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/test.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/edit_cache.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/rebuild_cache.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/list_install_components.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/install.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/install/local.dir
+/home/kan/lab/course/build/go2_navigation/CMakeFiles/install/strip.dir

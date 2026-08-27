@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: go2_mcp_server
+Version: 0.1.0
+Summary: MCP server exposing Go2 Nav2 navigation as LLM-callable tools.
+Maintainer: kan
+Maintainer-email: mohammad.mk012@gmail.com
+License: BSD-3-Clause
+Requires-Dist: setuptools
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary

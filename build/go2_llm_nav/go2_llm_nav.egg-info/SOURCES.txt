@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+../../build/go2_llm_nav/go2_llm_nav.egg-info/PKG-INFO
+../../build/go2_llm_nav/go2_llm_nav.egg-info/SOURCES.txt
+../../build/go2_llm_nav/go2_llm_nav.egg-info/dependency_links.txt
+../../build/go2_llm_nav/go2_llm_nav.egg-info/entry_points.txt
+../../build/go2_llm_nav/go2_llm_nav.egg-info/requires.txt
+../../build/go2_llm_nav/go2_llm_nav.egg-info/top_level.txt
+../../build/go2_llm_nav/go2_llm_nav.egg-info/zip-safe
+go2_llm_nav/__init__.py
+go2_llm_nav/agent.py
+go2_llm_nav/desktop_ui.py
+go2_llm_nav/web_ui.py
+resource/go2_llm_nav

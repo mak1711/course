@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/go2_mcp_server/go2_mcp_server.egg-info/PKG-INFO
+../../build/go2_mcp_server/go2_mcp_server.egg-info/SOURCES.txt
+../../build/go2_mcp_server/go2_mcp_server.egg-info/dependency_links.txt
+../../build/go2_mcp_server/go2_mcp_server.egg-info/entry_points.txt
+../../build/go2_mcp_server/go2_mcp_server.egg-info/requires.txt
+../../build/go2_mcp_server/go2_mcp_server.egg-info/top_level.txt
+../../build/go2_mcp_server/go2_mcp_server.egg-info/zip-safe
+go2_mcp_server/__init__.py
+go2_mcp_server/detection_store.py
+go2_mcp_server/map_view.py
+go2_mcp_server/nav2_client.py
+go2_mcp_server/server.py
+resource/go2_mcp_server

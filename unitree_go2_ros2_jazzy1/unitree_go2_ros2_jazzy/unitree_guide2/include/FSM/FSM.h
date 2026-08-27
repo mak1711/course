@@ -1,0 +1,90 @@
+/**********************************************************************
+ Copyright (c) 2020-2023, Unitree Robotics.Co.Ltd. All rights reserved.
+***********************************************************************/
+#ifndef FSM_H
+#define FSM_H
+
+// FSM States
+#include "FSM/FSMState.h"
+#include "FSM/State_FixedStand.h"
+#include "FSM/State_Passive.h"
+#include "FSM/State_FreeStand.h"
+#include "FSM/State_Trotting.h"
+#include "FSM/State_BalanceTest.h"
+#include "FSM/State_SwingTest.h"
+#include "FSM/State_StepTest.h"
+#include "common/enumClass.h"
+#include "control/CtrlComponents.h"
+#ifdef COMPILE_WITH_MOVE_BASE
+    #include "FSM/State_move_base.h"
+#endif  // COMPILE_WITH_MOVE_BASE
+
+#ifdef COMPILE_WITH_ROS2_MB
+    #include "FSM/State_move_base.h"
+#endif  // COMPILE_WITH_ROS2_MB
+
+struct FSMStateList{
+    FSMState *invalid;
+    State_Passive *passive;
+    State_FixedStand *fixedStand;
+    State_FreeStand *freeStand;
+    State_Trotting *trotting;
+    State_BalanceTest *balanceTest;
+    State_SwingTest *swingTest;
+    State_StepTest *stepTest;
+#ifdef COMPILE_WITH_MOVE_BASE
+    State_move_base *moveBase;
+#endif  // COMPILE_WITH_MOVE_BASE
+
+#ifdef COMPILE_WITH_ROS2_MB
+    State_move_base *moveBase;
+#endif  // COMPILE_WITH_ROS2_MB
+
+    void deletePtr(){
+        delete invalid;
+        delete passive;
+        delete fixedStand;
+        delete freeStand;
+        delete trotting;
+        delete balanceTest;
+        delete swingTest;
+        delete stepTest;
+#ifdef COMPILE_WITH_MOVE_BASE
+        delete moveBase;
+#endif  // COMPILE_WITH_MOVE_BASE
+#ifdef COMPILE_WITH_ROS2_MB
+        delete moveBase;
+#endif  // COMPILE_WITH_ROS2_MB
+    }
+};
+
+class FSM{
+public:
+    FSM(CtrlComponents *ctrlComp);
+    ~FSM();
+    void initialize();
+    void run();
+private:
+    FSMState* getNextState(FSMStateName stateName);
+    bool checkSafty();
+    CtrlComponents *_ctrlComp;
+    FSMState *_currentState;
+    FSMState *_nextState;
+    FSMStateName _nextStateName;
+    FSMStateList _stateList;
+    FSMMode _mode;
+    long long _startTime;
+    int count;
+
+    // Loop-timing debug stats: setProcessScheduler() has no real-time priority on
+    // this box, so the control loop's actual period can drift under CPU load
+    // (Gazebo/RViz contention). Reported once a second so it's visible without
+    // spamming every cycle.
+    long long _loopMaxUs = 0;
+    long long _loopSumUs = 0;
+    int _loopSamples = 0;
+    long long _lastLoopReportTime = 0;
+};
+
+
+#endif  // FSM_H
