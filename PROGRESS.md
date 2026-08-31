@@ -1093,6 +1093,33 @@ current narrow tool set. Fixed all three:
   agent now has enough legitimate multi-step tools (explore cycles, introspection,
   vocabulary changes) that 8 could plausibly cut off a longer task partway through.
 
+**Full end-to-end verification, prompted by being asked directly "did you test the
+full system."** Honest answer at that point was no -- the new tools had only been
+build-checked and, for two of three, tested via direct Python calls, not through the
+actual MCP protocol or the real demo stack. Did the real thing instead of just
+reporting the gap:
+- Full clean rebuild of both workspaces from scratch (`rm -rf build install log` +
+  `colcon build`) -- 5/5 and 8/8 packages, no errors.
+- Launched the real junior demo stack (sim + Nav2 + YOLO-World), set the initial pose,
+  confirmed AMCL localized.
+- Tested every new tool through the **actual MCP protocol** (spawned `go2_mcp_server`
+  as a real subprocess via `stdio_client`, exactly as `go2_llm_nav` does -- not direct
+  Python function calls): `list_ros_nodes`, `echo_topic("/odom")`, and
+  `set_detection_classes` all confirmed working with real data.
+- **`set_detection_classes` failed on the first attempt** (timed out) -- root-caused
+  properly rather than assumed: `ros2 service call` directly against `/yolo/set_classes`
+  showed the *first* call triggers `yolo_node` downloading an additional ~338MB CLIP
+  resource on demand (~20-25s one-time cost); a second immediate call took ~100ms. The
+  10s default timeout was just too short for a cold start. Fixed (45s default,
+  documented why in the docstring), rebuilt, re-verified: succeeds cleanly now.
+- Also re-verified the **pre-existing** core navigation still works, not just the new
+  tools: `navigate_to_place("waypoint")` through the same real MCP protocol, watched
+  `/odom` move from the origin toward the target (0.79, 0.42) over several seconds,
+  zero safety trips.
+- Cleaned up afterward -- again had to kill several processes by exact PID since
+  `pkill` patterns missed them (the same `ros2 launch` process-tree gotcha from
+  earlier this session; see [[feedback-bash-harness-gotchas]]).
+
 ### 2026-08-26 — Session 12 (cont'd): re-mapping the walled world
 User ran the demo themselves against the new walled world before the re-map above was
 done, and hit exactly the predicted failure: `nav2.log` showed `"Begin navigating from

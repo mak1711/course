@@ -116,12 +116,18 @@ class DetectionStore:
             return None
         return max(matches, key=lambda o: o["times_seen"])
 
-    def set_classes(self, classes: list[str], timeout_sec: float = 10.0) -> dict:
+    def set_classes(self, classes: list[str], timeout_sec: float = 45.0) -> dict:
         """Change the detector's open vocabulary at runtime (calls YOLO-World's
         /yolo/set_classes service). Doesn't spin the node itself -- the background
         thread started in __init__ is already spinning it, so this just waits for
         that thread to resolve the response future rather than spinning a second time
-        from a different thread (which would race with it)."""
+        from a different thread (which would race with it).
+
+        45s default timeout, not 10s: confirmed live that the *first* call to this
+        service can trigger yolo_node downloading an additional ~338MB CLIP resource
+        on demand (~20-25s one-time cost) -- a 10s timeout failed on exactly this,
+        even though the actual service call itself succeeded (verified directly via
+        `ros2 service call`). Subsequent calls are fast (~100ms)."""
         if not self._available:
             return {"ok": False, "error": "Object detection isn't running (yolo_msgs unavailable)."}
         if not self._set_classes_client.wait_for_service(timeout_sec=5.0):
