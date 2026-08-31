@@ -1,0 +1,29 @@
+# Manually-authored semantic map for the go2_simulation test world.
+# Each place is an *approach pose* near the named object (not on top of it), in the
+# `map` frame, with a yaw that faces the object -- these are what Nav2 actually drives to.
+#
+# Matches the obstacles defined in go2_simulation/worlds/go2_world.sdf:
+#   sofa_box  @ (2.5, 2.5),  size 1.2x0.6x0.6
+#   table_box @ (-2.5, -2.0), size 0.8x0.8x0.7
+places:
+  sofa:
+    x: 1.8
+    y: 1.8
+    yaw: 0.785398  # 45 deg, facing the sofa_box in the NE corner
+    description: "In front of the sofa (blue box) in the NE corner of the room."
+  table:
+    # Was (-1.8, -1.3) -- only 0.36m from pillar_2 @ (-1.5, -1.5), inside the robot's
+    # required 0.5m clearance (robot_radius 0.35 + pillar radius 0.15). That put the
+    # goal itself in the pillar's collision-inflation zone, which Nav2 could never
+    # settle into -- root cause of an intermittent stuck-recovery-loop bug (confirmed
+    # live: number_of_recoveries climbing past 20 with the robot barely moving).
+    # Approaching from due west instead clears pillar_2 by >2m.
+    x: -3.5
+    y: -2.0
+    yaw: 0.0  # facing east, toward the table_box
+    description: "In front of the table (brown box) in the SW corner of the room."
+  entrance:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    description: "Center of the room, near the starting point."

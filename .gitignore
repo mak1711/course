@@ -1,0 +1,18 @@
+# colcon build artifacts -- always regenerable via `colcon build`, never hand-edited.
+# Excluded from both workspaces (this one and unitree_go2_ros2_jazzy1/).
+build/
+install/
+log/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Stray nested colcon tree that once got created inside go2_navigation/maps/ by
+# running colcon build from the wrong directory -- not real package content.
+src/go2_navigation/maps/build/
+src/go2_navigation/maps/install/
+src/go2_navigation/maps/log/
+
+# ROS 2 log/session junk that can appear at the repo root during ad hoc testing
+*.log
