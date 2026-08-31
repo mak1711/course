@@ -91,6 +91,13 @@ the sequence yourself:
   updated continuously as you move/turn -- check it after rotating or arriving
   somewhere to see what's new.
 
+If asked to find something specific that isn't showing up, the detector's vocabulary
+might just not include it -- call set_detection_classes([...]) with a list of short
+noun phrases covering what you're looking for, then look around again (rotate()/
+navigate_to_point()) before concluding it's genuinely not there. Don't call this
+speculatively for every request -- only when a targeted search for something specific
+isn't finding it.
+
 For "what's in the room" / "what do you see" / finding something not already known:
 you must NOT answer "I can't see anything" or "nothing here" just because
 list_detected_objects() happens to be empty right now -- that only means you haven't
@@ -199,7 +206,7 @@ async def run_agent(session: ClientSession, llm: ChatClient, prompt: str, on_eve
         {"role": "user", "content": prompt},
     ]
 
-    for _ in range(8):  # hard cap so a confused model can't loop forever
+    for _ in range(20):  # hard cap so a confused model can't loop forever
         try:
             message = await llm.chat(messages, tools)
         except httpx.HTTPStatusError as exc:

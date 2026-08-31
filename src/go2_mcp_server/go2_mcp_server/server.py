@@ -1,7 +1,8 @@
 """MCP server exposing Go2 navigation as tools an LLM can call.
 
 Tools: list_places, navigate_to_place, get_navigation_status, cancel_navigation,
-list_ros_topics, rotate, get_map_overview, navigate_to_point, list_detected_objects.
+list_ros_topics, list_ros_nodes, echo_topic, rotate, get_map_overview,
+navigate_to_point, list_detected_objects, set_detection_classes.
 The LLM/agent that calls these never invents coordinates for a *named* place -- those
 always come from list_places or a detected-object label. rotate() and
 navigate_to_point() are the deliberate exceptions: raw motion primitives (turn by an
@@ -207,6 +208,39 @@ def list_ros_topics() -> list[dict]:
         {"topic": name, "types": types}
         for name, types in sorted(_nav.node.get_topic_names_and_types())
     ]
+
+
+@mcp.tool()
+def list_ros_nodes() -> list[str]:
+    """List every ROS 2 node currently running on this robot's ROS graph. Read-only
+    introspection, for general questions like "what nodes are running" -- not for
+    navigation."""
+    return sorted(_nav.node.get_node_names())
+
+
+@mcp.tool()
+def echo_topic(topic_name: str) -> dict:
+    """One-shot read of the most recent message on any ROS 2 topic, by exact name
+    (e.g. "/scan" or "/odom") -- general read-only introspection for questions like
+    "what's currently on topic X" or inspecting a topic list_ros_topics() found, not
+    for navigation. Resolves the message type automatically. Times out after a few
+    seconds if nothing is being published."""
+    return _nav.echo_topic(topic_name)
+
+
+@mcp.tool()
+def set_detection_classes(classes: list[str]) -> dict:
+    """Change what the camera's object detector is looking for, at runtime (calls
+    YOLO-World's open-vocabulary /yolo/set_classes service) -- use this if asked to
+    find something not covered by the current/default vocabulary. Pass a list of
+    short noun phrases (e.g. ["red chair", "backpack"]); detection only recognizes
+    classes currently set, and a narrower, targeted list can also improve accuracy
+    for a specific search. Returns the classes actually applied. After calling this,
+    detections already in list_detected_objects() from the old vocabulary are still
+    there -- look around again (rotate()/navigate_to_point()) to find the new ones."""
+    if _detections is None:
+        return {"ok": False, "error": "Object detection isn't running."}
+    return _detections.set_classes(classes)
 
 
 def main() -> None:

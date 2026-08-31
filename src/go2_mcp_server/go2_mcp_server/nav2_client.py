@@ -15,6 +15,8 @@ from geometry_msgs.msg import PoseStamped, PoseWithCovarianceStamped
 from nav2_msgs.action import NavigateToPose, Spin
 from rclpy.action import ActionClient
 from rclpy.node import Node
+from rosidl_runtime_py import message_to_ordereddict
+from rosidl_runtime_py.utilities import get_message
 
 _STATUS_NAMES = {
     GoalStatus.STATUS_UNKNOWN: "unknown",
@@ -142,6 +144,50 @@ class Go2NavClient:
             if result is None:
                 return {"state": "timed_out"}
             return {"state": _STATUS_NAMES.get(result.status, f"status_{result.status}")}
+
+    def echo_topic(self, topic_name: str, timeout_sec: float = 5.0) -> dict:
+        """One-shot read of the most recent message on any topic, resolving its
+        message type dynamically from the ROS graph (the same approach `ros2 topic
+        echo` itself uses) -- general read-only introspection, not tied to any
+        specific message type the way the other one-shot reads in this class are."""
+        with self._lock:
+            topics = dict(self.node.get_topic_names_and_types())
+            if topic_name not in topics:
+                return {
+                    "ok": False,
+                    "error": f"Unknown topic '{topic_name}'. Call list_ros_topics() first.",
+                }
+            type_str = topics[topic_name][0]
+            try:
+                msg_class = get_message(type_str)
+            except (ValueError, ModuleNotFoundError, AttributeError) as exc:
+                return {
+                    "ok": False,
+                    "error": f"Could not resolve message type '{type_str}': {exc}",
+                }
+
+            result = {}
+
+            def cb(msg):
+                result["msg"] = msg
+
+            sub = self.node.create_subscription(msg_class, topic_name, cb, 10)
+            waited = 0.0
+            while "msg" not in result and waited < timeout_sec:
+                rclpy.spin_once(self.node, timeout_sec=0.2)
+                waited += 0.2
+            self.node.destroy_subscription(sub)
+
+            if "msg" not in result:
+                return {
+                    "ok": False,
+                    "error": f"No message received on '{topic_name}' within {timeout_sec}s -- is anything publishing?",
+                }
+            return {
+                "ok": True,
+                "type": type_str,
+                "message": message_to_ordereddict(result["msg"]),
+            }
 
     def cancel(self) -> bool:
         with self._lock:

@@ -17,6 +17,7 @@ detections.
 
 import math
 import threading
+import time
 
 import rclpy
 from rclpy.executors import SingleThreadedExecutor
@@ -24,10 +25,12 @@ from rclpy.node import Node
 
 try:
     from yolo_msgs.msg import DetectionArray
+    from yolo_msgs.srv import SetClasses
 
     _YOLO_MSGS_AVAILABLE = True
 except ImportError:
     DetectionArray = None
+    SetClasses = None
     _YOLO_MSGS_AVAILABLE = False
 
 DEDUPE_RADIUS_M = 0.75
@@ -57,6 +60,7 @@ class DetectionStore:
 
         self.node = Node(node_name)
         self.node.create_subscription(DetectionArray, topic, self._on_detections, 10)
+        self._set_classes_client = self.node.create_client(SetClasses, "/yolo/set_classes")
         self._executor = SingleThreadedExecutor()
         self._executor.add_node(self.node)
         self._thread = threading.Thread(target=self._executor.spin, daemon=True)
@@ -111,6 +115,27 @@ class DetectionStore:
         if not matches:
             return None
         return max(matches, key=lambda o: o["times_seen"])
+
+    def set_classes(self, classes: list[str], timeout_sec: float = 10.0) -> dict:
+        """Change the detector's open vocabulary at runtime (calls YOLO-World's
+        /yolo/set_classes service). Doesn't spin the node itself -- the background
+        thread started in __init__ is already spinning it, so this just waits for
+        that thread to resolve the response future rather than spinning a second time
+        from a different thread (which would race with it)."""
+        if not self._available:
+            return {"ok": False, "error": "Object detection isn't running (yolo_msgs unavailable)."}
+        if not self._set_classes_client.wait_for_service(timeout_sec=5.0):
+            return {"ok": False, "error": "/yolo/set_classes service not available -- is YOLO-World running?"}
+
+        request = SetClasses.Request()
+        request.classes = list(classes)
+        future = self._set_classes_client.call_async(request)
+        start = time.time()
+        while not future.done():
+            if time.time() - start > timeout_sec:
+                return {"ok": False, "error": "Timed out waiting for /yolo/set_classes."}
+            time.sleep(0.05)
+        return {"ok": True, "classes": request.classes}
 
     def destroy(self) -> None:
         if not self._available:

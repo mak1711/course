@@ -1,6 +1,0 @@
-Invoking command in '/home/kan/lab/course/build/go2_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/src/go2_simulation -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/install/go2_simulation
-Invoked command in '/home/kan/lab/course/build/go2_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/kan/lab/course/src/go2_simulation -DCMAKE_INSTALL_PREFIX=/home/kan/lab/course/install/go2_simulation
-Invoking command in '/home/kan/lab/course/build/go2_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/build/go2_simulation -- -j8 -l8
-Invoked command in '/home/kan/lab/course/build/go2_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/kan/lab/course/build/go2_simulation -- -j8 -l8
-Invoking command in '/home/kan/lab/course/build/go2_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/build/go2_simulation
-Invoked command in '/home/kan/lab/course/build/go2_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/kan/lab/course/build/go2_simulation

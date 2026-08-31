@@ -1,4 +1,0 @@
-[console_scripts]
-go2_llm_nav = go2_llm_nav.agent:main
-go2_llm_nav_gui = go2_llm_nav.desktop_ui:main
-go2_llm_nav_web = go2_llm_nav.web_ui:main
