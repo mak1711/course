@@ -1120,6 +1120,81 @@ reporting the gap:
   `pkill` patterns missed them (the same `ros2 launch` process-tree gotcha from
   earlier this session; see [[feedback-bash-harness-gotchas]]).
 
+### 2026-08-31 — Session 13 (cont'd): third room + real LLM-in-the-loop test
+
+User asked to increase room complexity further and actually test the LLM (Gemini) with
+the new tools -- not just the raw MCP protocol calls from the earlier verification
+round.
+
+**Added a third room.** Split the former "north room" with a second vertical divider,
+giving 3 rooms total (NW: `box2`; NE: `box1`/`cyl1`, spawn; South: `box3`/`cyl2`,
+unchanged). Hit the same `--`-in-XML-comment mistake from memory
+([[feedback-xml-comment-dashes]]) **three times in the same edit** before catching it
+with a full-file scan -- worth treating as a standing habit (avoid `--` in SDF comments
+entirely) rather than a one-off gotcha, see the updated memory. Also caught a real
+design flaw before ever launching anything: the first wall position (x=0.5) sat
+*inside* the existing north-south doorway's gap (x in [-0.7, 0.7]), which would have
+pinched that doorway down to a near-impassable sliver right at the junction of the two
+doorways. Moved to x=1.0, verified clearances properly (spawn ~0.9m raw clearance from
+the wall face -- fine for a static spawn point, doesn't need Nav2's full inflation
+margin).
+
+**Re-mapped properly, and found+fixed a real bug in the route-generation script
+itself**, not just the world: the visibility-graph approach continued each
+target-to-target Dijkstra call from the *original* target list rather than from where
+the route actually ended up, and silently skipped pairs with no path instead of
+aborting -- meaning consecutive points in the assembled route could end up
+unvalidated, exactly the class of bug that caused the earlier fall. Fixed (continue
+from the actual last point, abort loudly on any failure, then a final exhaustive
+pass validating every consecutive segment directly) before ever running it. Also found
+the geometry check itself had a bug: it treated the new vertical divider as blocking
+line-of-sight for *any* y, when it only physically exists for y in [-1, 5.5] (the north
+rooms) -- a segment entirely within the south room was being incorrectly rejected.
+Fixed. Final validated route: 21 waypoints, ran twice (zero falls both times), map
+verified via neighborhood-scan sampling (not exact-center, which reads "unknown" for
+solid objects/walls -- their own unreachable interior, established last time) -- every
+wall (8 segments now) and every object confirmed occupied, every doorway and room
+interior confirmed free. Installed, rebuilt `go2_navigation`.
+
+**Real LLM-in-the-loop test, the actual point of this round.** Relaunched the full
+stack (sim + Nav2 + YOLO-World), and ran `go2_llm_nav` with a real prompt against
+Gemini (not the raw MCP client used in the earlier verification round) -- "what's in
+this house? look around and tell me what you find."
+- **First run revealed a test-setup gap, not a product bug**: launching YOLO-World
+  manually (not through `run_go2_demo_junior.sh`, which calls `/yolo/set_classes` right
+  after launch) left it on its untouched default vocabulary -- a large COCO-like class
+  list. Every detection came back completely wrong for this world ("traffic light,"
+  "airplane," "tv," "bed," "umbrella" -- none of which exist here). The tool
+  orchestration itself was correct throughout (`get_map_overview()` -> `rotate()` ->
+  `list_detected_objects()` -> `navigate_to_point()` -> polled `get_navigation_status()`
+  -> checked detections again, entirely Gemini's own sequencing, no hardcoded script)
+  -- it was purely a vocabulary problem. Set the classes properly
+  (`/yolo/set_classes`, matching the real launcher's default list) and reran: got real
+  matches this time -- "red box" at (4.62, 0.38) (box1 is at (5, 0), a close match) and
+  "green box"/cylinder1-area at (2.84, 2.46) (cyl1 is at (3, 3), plausible given
+  standoff/3D-reconstruction imprecision).
+- **Confirmed live, for the first time, a scenario flagged as untested since Session
+  12**: whether Nav2's Spin behavior aborts safely if the robot is too close to an
+  obstacle to complete a rotation. It does -- `behavior_server` logged `"Collision
+  Ahead - Exiting Spin"` and cleanly aborted the goal (`rotate()` correctly returned
+  `{"ok": false, "state": "aborted"}`) rather than attempting the turn anyway. Traced
+  the cause: the robot happened to be resting only ~0.4m from the new dividing wall
+  (near the NW/NE doorway, left over from an earlier test's navigation), not a flaw in
+  the rotate() tool or the new wall's placement. Gemini handled the failed rotate
+  reasonably both times it happened -- didn't retry blindly, moved on to
+  `list_detected_objects()`/`navigate_to_point()` instead.
+- Noted, not investigated further: one `navigate_to_point()` call needed 7 recovery
+  attempts (`planner_server` repeatedly aborted `compute_path_to_pose` before
+  succeeding) right after a collision-aborted spin -- Nav2 correctly kept retrying
+  rather than failing silently, but it's a rough edge worth remembering if navigation
+  right after an aborted behavior looks sluggish in the future.
+- **Not covered by this test**: `set_detection_classes()` being called by Gemini's own
+  judgement -- the vocabulary was already reasonable by the second run, so nothing
+  prompted it to reach for that tool. Still only verified via direct protocol calls
+  (previous round), not through the LLM's own decision-making.
+
+All test processes cleaned up and verified at the process level afterward.
+
 ### 2026-08-26 — Session 12 (cont'd): re-mapping the walled world
 User ran the demo themselves against the new walled world before the re-map above was
 done, and hit exactly the predicted failure: `nav2.log` showed `"Begin navigating from

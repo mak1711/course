@@ -387,5 +387,54 @@
         </visual>
       </link>
     </model>
+
+    <!-- 2026-08-31: splits the former "north room" into two, giving 3 rooms total.
+         Vertical divider at x=1.0, spanning the north room's y=[-1, 5.5], with a
+         1.4m doorway gap at y=[1.3, 2.7] (same width standard as the first
+         divider). box2 (-3, 4) ends up in the new NW room; box1 (5, 0) and cyl1
+         (3, 3) stay in the NE room, with generous clearance to the new wall (2.94m
+         and 1.15m respectively). x=1.0 chosen specifically to clear the existing
+         north to south doorway's gap (x in [-0.7, 0.7] at y=-1): an earlier x=0.5
+         placement sat inside that gap and would have pinched it down to a
+         near impassable sliver right at the junction of the two doorways, caught
+         before ever launching a mapping run. Robot spawn (2, 2) is about 0.9m of
+         raw clearance from the wall face, which is fine physically (a static
+         spawn point, not a Nav2 planning waypoint that needs the full inflation
+         margin). -->
+    <model name="wall_divider_north">
+      <static>true</static>
+      <pose>1.0 4.1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.15 2.8 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.15 2.8 1.2</size></box></geometry>
+          <material>
+            <ambient>0.75 0.75 0.7 1</ambient>
+            <diffuse>0.75 0.75 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_divider_south">
+      <static>true</static>
+      <pose>1.0 0.15 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.15 2.3 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.15 2.3 1.2</size></box></geometry>
+          <material>
+            <ambient>0.75 0.75 0.7 1</ambient>
+            <diffuse>0.75 0.75 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
   </world>
 </sdf>
