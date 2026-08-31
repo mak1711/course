@@ -59,6 +59,14 @@ The CLIP install step matters: `ultralytics`' own auto-install for it has been o
 to silently fail — if you skip this and later see `No module named 'clip'` when running
 the junior demo, this is the fix.
 
+**Model weight files** (`yolov8s-worldv2.pt`, `weights/clip/ViT-B-32.pt`) aren't
+committed to this repo — they're large (the CLIP one alone is 338MB, over GitHub's
+100MB file limit) and downloadable, not source. `ultralytics`/CLIP fetch them
+automatically the first time they're actually needed (confirmed live: the first call
+that needs the CLIP weights triggers an on-demand ~338MB download, roughly 20-25s on a
+good connection) — expect the *first* real detection run to take noticeably longer
+than every run after it, not a hang.
+
 ## 4. Get a free Gemini API key
 
 The LLM is Google's Gemini — free, no credit card required:

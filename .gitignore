@@ -16,3 +16,10 @@ src/go2_navigation/maps/log/
 
 # ROS 2 log/session junk that can appear at the repo root during ad hoc testing
 *.log
+
+# Downloadable model weights, not source -- and weights/clip/ViT-B-32.pt (338MB)
+# exceeds GitHub's 100MB hard file-size limit anyway. Fetched via `pip install
+# git+https://github.com/ultralytics/CLIP.git` (see INSTALL.md) plus ultralytics'
+# own auto-download for the YOLO-World checkpoint; not meant to be committed.
+weights/
+*.pt
