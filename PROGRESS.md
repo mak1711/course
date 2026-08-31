@@ -1,13 +1,15 @@
 # Go2 Autonomous Natural-Language Navigation — Project Progress
 
-**Last updated:** 2026-08-26 (Session 12, cont'd)
+**Last updated:** 2026-08-31 (Session 13)
 
 **End goal:** `"Go to the sofa."` → LLM/agent → semantic place lookup → Nav2 goal → autonomous
 navigation → Unitree Go2. Built and validated in simulation first, real robot later.
 
-**Want to just run it?** See `RUN_DEMO.md` — one command (`./run_go2_demo.sh`) brings up
+**Want to just run it?** See `USAGE.md` — one command (`./run_go2_demo.sh`) brings up
 the whole stack and drops you into a chat prompt. This file (`PROGRESS.md`) is the full
-technical history/architecture; `RUN_DEMO.md` is deliberately just "how do I use it."
+technical history/architecture; `USAGE.md` is deliberately just "how do I use it," and
+`INSTALL.md` covers one-time setup. `README.md` is the project summary/architecture
+overview.
 
 Pipeline: Go2 ROS 2 interface → 3D LiDAR → `pointcloud_to_laserscan` → TF/odometry →
 `slam_toolbox` (mapping) → saved map → AMCL (localization) → Nav2 (planning + obstacle
@@ -1004,6 +1006,92 @@ tools, so the person can later say "go to that object."
   re-explore.
 - All processes (sim, Nav2, YOLO, chat session) were shut down at the user's request;
   they're running the demo themselves going forward via `./run_go2_demo_junior.sh`.
+
+### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
+
+**Cleanup and documentation.** User asked to organize the project (keep only needed
+files, cleanly structured) and write an installation guide, usage guide, and project
+summary. Given the project had **no version control at all** up to this point, set up
+git first as a safety net before touching anything -- `git init` at the root, plus a
+safety-baseline commit inside `unitree_go2_ros2_jazzy` (which already had its own git
+history and 219 files of uncommitted hand-edited work: the walled `default.sdf`,
+`rgbd_camera` xacro changes, the velocity clamps, the whole `yolo_ros` clone -- none of
+it protected before this). Removed genuine cruft (`__pycache__`, a stray nested colcon
+build tree inside `go2_navigation/maps/`, ~380MB of duplicate YOLO-World weights,
+verified via CWD-resolution reasoning + md5 before deleting). Kept `unitree_ros2/`
+(the real-hardware DDS bridge) on the user's explicit call -- not simulation cruft,
+deliberately preserved for eventual physical-robot use. Wrote `README.md` (project
+summary + architecture diagram), `INSTALL.md` (step-by-step setup), `USAGE.md`
+(replaces the stale `RUN_DEMO.md`, updated for the current walled-world/no-pre-baked-
+objects state). Caught and fixed a self-inflicted regression along the way: deleted
+`src/go2_simulation/rviz/` as "empty cruft," which broke the build (`CMakeLists.txt`
+installs from it, needs the directory to exist even empty) -- restored with a
+`.gitkeep`, and while investigating found a real pre-existing footgun: a bare
+`colcon build` from the project root recursively tries to build the two nested
+workspaces too and fails; documented `colcon build --base-paths src` as the fix rather
+than papering over it with ignore markers (tried those first, reverted -- they also
+break building the nested workspace from within itself, which is the documented way
+to do it).
+
+**Real-hardware tangent.** User asked whether this could run on the real Go2, and
+separately reported the phone app's 2D map wasn't visible over ROS after connecting via
+Ethernet with topics "mostly empty." Diagnosed from `unitree_ros2`'s own docs/scripts
+(no live hardware access this session): the app's SLAM/mapping is part of Unitree's own
+closed onboard stack, not exposed over the SDK2/DDS bridge at all (the bridge only
+exposes raw sensor/control topics -- `/utlidar/cloud`, IMU, `/lowstate`/`/lowcmd`,
+`/sportmodestate` -- no `/map`). Separately found and fixed a real bug in
+`unitree_ros2/setup.sh`: the line sourcing the built Unitree message-package overlay
+(needed for ROS 2 to understand those topics at all) was commented out and pointed at a
+path (`cyclonedds_ws/install/setup.bash`) that doesn't exist in this checkout -- the
+real overlay is at `install/setup.bash` (this workspace was built directly in
+`unitree_ros2/`, not via the README's `cyclonedds_ws` layout). Verified the fix:
+`ros2 pkg list`/`ros2 interface list` correctly show `unitree_go`/`unitree_api` after
+sourcing it. This plausibly explains the "mostly empty" topics report, though it
+couldn't be confirmed against the actual physical robot this session.
+
+**Git catastrophe and recovery.** Mid-session, discovered `src/`, `PROGRESS.md`,
+`README.md`/`INSTALL.md`/`USAGE.md`, and both launcher scripts were entirely missing
+from disk -- the user had independently deleted the git history this session created
+and rebuilt it fresh, then pushed to GitHub (`mak1711/course`). The fresh "Initial
+commit" that got pushed turned out to only contain `build/`/`install/`/`log/` (colcon
+artifacts) plus the two nested workspaces -- the actual source, docs, and scripts never
+made it into that commit (most likely deleted from disk in the same cleanup pass,
+before the fresh `git add`/commit). Recovered cleanly: this session's own prior commit
+was still reachable via the reflog (git doesn't garbage-collect immediately), diffed
+byte-for-byte clean against it, restored the missing paths, and committed the recovery
+-- all without any destructive git operation (no reset --hard, no force-push, purely
+additive). Separately discovered both nested repos (`unitree_go2_ros2_jazzy`,
+`unitree_ros2`) lost their own independent `.git` in the same event -- their commit
+*history* is gone, but the actual file *content* was verified intact on disk (checked
+the velocity-clamp fix and the walled world directly). Per the user's explicit
+instruction, folded both into the main repo as regular tracked files going forward
+(confirmed via `git ls-tree` -- real tree objects, not gitlinks) rather than
+re-establishing them as separate embedded repos. **Lesson worth keeping**: this
+session's own "Initial commit"/fresh `git init` from the user's side didn't respect
+the `.gitignore` already in place, re-tracking `build`/`install`/`log`/`__pycache__`
+(3407 files) across all three repos -- had to `git rm --cached` all of it again while
+fixing the above; .gitignore only blocks *new* untracked files, it does nothing for
+files a fresh `git add -A` already picked up.
+
+**Capability-gap tools.** Earlier discussion (why not use a ROSA-style broad-access
+agent) concluded the narrow, typed-tool approach here is the right call for a system
+actually moving a physical robot -- but identified three real, worth-fixing gaps in the
+current narrow tool set. Fixed all three:
+- **`set_detection_classes(classes)`** (`go2_mcp_server`): wraps YOLO-World's
+  `/yolo/set_classes` service so the agent can expand its own search vocabulary at
+  runtime instead of being stuck with whatever was set at launch. Not live-tested
+  end-to-end (needs YOLO-World running), but reuses the exact `call_async`/poll-future
+  pattern already proven elsewhere in `detection_store.py`.
+- **`list_ros_nodes()`** and **`echo_topic(topic_name)`**: broader read-only
+  introspection, the "ROSA-style breadth without the action-layer risk" middle ground
+  discussed earlier -- `echo_topic` resolves any topic's message type dynamically via
+  `rosidl_runtime_py` (the same mechanism `ros2 topic echo` itself uses under the
+  hood), not hardcoded to one type. **Live-tested**: a throwaway
+  publisher/subscriber pair confirmed dynamic type resolution and message
+  serialization both work correctly.
+- **Raised the LLM tool-call round cap from 8 to 20** (`go2_llm_nav/agent.py`) -- the
+  agent now has enough legitimate multi-step tools (explore cycles, introspection,
+  vocabulary changes) that 8 could plausibly cut off a longer task partway through.
 
 ### 2026-08-26 — Session 12 (cont'd): re-mapping the walled world
 User ran the demo themselves against the new walled world before the re-map above was
