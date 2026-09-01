@@ -1107,6 +1107,59 @@ confirmed the fix actually works. Pushed.
 dropped -- this fix went out right after the first failed attempt; re-running it
 against the real robot to confirm is the immediate next step, not anything further.
 
+**Update, later same day again: two more real bugs found and fixed, map now forms
+correctly.** User re-ran the fixed pipeline and reported a real map was forming, but
+badly wrong: "the rays seem to be very very little rays not a 180 rays in a 2d but
+like one ray taken" and "it drifts the odometry drifts and the map is jumbled on top
+of itself." Per the user's explicit standing instruction ("dont send any commands to
+the robot ... you JUST try making the mapp on this computer onlyyy"), diagnosed this
+directly against the live, already-connected robot myself -- read-only subscriptions
+and launching the passive mapping pipeline only, no movement commands.
+
+**Bug 1: CycloneDDS fragmentation.** `ros2 topic echo /utlidar/cloud`, `ros2 topic bw`,
+`ros2 bag record`, and a custom `rclpy` subscriber all received **zero** messages --
+while `ros2 topic hz` kept working fine. That split was the key clue: `topic hz` only
+needs arrival timing, not full CDR deserialization, while everything else needs the
+complete message reassembled. Root cause: CycloneDDS's default fragment size couldn't
+reassemble the L1 lidar's large PointCloud2 messages (~131KB, 4000+ points) over this
+real, non-localhost network link. Ruled out QoS mismatch first (checked and matched
+the real publisher's actual profile -- didn't help). Fixed by adding
+`<FragmentSize>4000B</FragmentSize>` under `<General>` (not `<Internal>` -- tried that
+first, wrong schema location) inside `CYCLONEDDS_URI` in `unitree_ros2/setup.sh`.
+Verified directly: raw cloud reception went from 0 messages to ~4100 points/message
+with full -180°..+180° angular coverage and realistic ranges up to ~5m.
+
+**Bug 2: wrong height-band filter.** Even with cloud reception fixed, `/scan` was
+still mostly `.inf` (13 finite rays out of 723). `pointcloud_to_laserscan`'s
+`min_height`/`max_height` (0.05 to 0.6) had been copied from the simulated Velodyne's
+config, which sits flat on top of the robot so obstacles show up *above* `base_link`.
+The real L1's mount has a steep pitch (~165°, see the static TF's `rpy`), so it looks
+mostly forward-and-down instead. Measured live by transforming the raw cloud into
+`base_link` using the actual published TF: **92.6%** of points landed in
+`z=[-0.6,-0.05]`, only **2.9%** in the old `[0.05,0.6]` band -- confirming the band,
+not the sensor or the fragmentation fix, was now the bottleneck. Rebanded
+`slam_real.launch.py` to `min_height: -0.6, max_height: -0.05`.
+
+**Verified end-to-end after both fixes**: `/scan` finite-ray count went from 13/723 to
+150-338/723 across consecutive messages (real room-scale ranges, 0.5m-3.3m, not
+clipped to range_min or inf); `/map` forms with a sane mix of cells (104 occupied /
+393 free / 3054 unknown out of 3551 total -- not degenerate); `/odom` held stable to
+sub-millimeter precision over 101 messages (~5s) while the robot sat still --
+confirming the "odometry drifts" symptom the user reported was actually a downstream
+effect of `slam_toolbox` never getting good scan data to correct against, not a real
+odometry bug. Committed and pushed
+(`8bc4861`).
+
+**Still open**: this was verified with the robot stationary. Whether the map builds
+up cleanly into an accurate room layout while being driven around with the controller
+is the next real test -- that's on the user to do and report back on, same
+controller-driven, no-autonomous-movement constraint as before. Also unexplored (not
+requested, just noticed while investigating): `/utlidar/robot_odom`,
+`/utlidar/robot_pose`, and `/utlidar/cloud_deskewed` topics exist on the real SDK and
+might be better-suited, purpose-built alternatives to the current raw-cloud +
+custom-odom-bridge approach -- worth a look if further real-hardware odometry/mapping
+quality issues come up.
+
 ### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
 
 **Cleanup and documentation.** User asked to organize the project (keep only needed
