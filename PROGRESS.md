@@ -1068,6 +1068,45 @@ thing that genuinely needs the physical hardware.
 Documented in `README.md`/`USAGE.md` (new "Building a 2D map from the real robot"
 section, prerequisites + exact commands) and memory.
 
+**Update, later same day: connected to the real robot for the first time, found and
+fixed a real bug.** User followed the steps above -- ping confirmed connectivity,
+`/utlidar/cloud` and `/lf/sportmodestate` both showed real data at their expected
+rates, `slam_real.launch.py` started all four processes cleanly -- but RViz showed no
+map, and the log was full of `slam_toolbox: Message Filter dropping message: frame
+'base_link' ... 'the timestamp on the message is earlier than all the data in the
+transform cache'`, repeating forever.
+
+Root-caused from the log alone: the dropped message's embedded time and the log
+line's own wall-clock prefix differed by a consistent ~27 minutes -- **the robot's
+onboard clock isn't NTP-synced to the laptop.** `/utlidar/cloud` (and `/scan`, since
+`pointcloud_to_laserscan` preserves input timestamps) is stamped using the robot's own
+clock, since that sensor's driver runs onboard too. `odom_tf_bridge` was stamping the
+`odom`→`base_link` TF with `self.get_clock().now()` -- the bridge *process's* own
+wall-clock, i.e. the laptop's -- so the TF buffer only ever had laptop-clock
+timestamps, and every incoming robot-clock-stamped `/scan` looked older than anything
+in the cache. Zero scans were ever processed; that's the entire reason no map formed.
+
+**Fixed**: use `msg.stamp` (`SportModeState`'s own embedded `TimeSpec`) for both the
+`Odometry` header and the TF broadcast instead of wall-clock -- what matters isn't
+matching true time, just staying on the same clock basis as the lidar data
+`slam_toolbox` correlates this against. `TimeSpec` has identical `(sec, nanosec)`
+fields to `builtin_interfaces/Time` but is a different message class, so it needs an
+explicit conversion, not a direct field assignment.
+
+Verified with a synthetic test (a fake `SportModeState` with a deliberately
+far-in-the-past timestamp, confirming `/odom`'s `header.stamp` came back matching that
+exactly rather than wall-clock "now"). First attempt at this test gave a false
+"still broken" result -- turned out to be several stale leftover `odom_tf_bridge`
+processes from earlier test rounds still running and cross-talking on the same topics
+(each `ros2 run`'s `nohup ... & $!` only captures the wrapper PID, not the actual
+Python child -- the known process-tree gotcha from earlier this session, recurring
+here in a new form). Killed everything with `pkill -f odom_tf_bridge`, retested clean,
+confirmed the fix actually works. Pushed.
+
+**Still open**: whether the map actually forms correctly now that scans aren't being
+dropped -- this fix went out right after the first failed attempt; re-running it
+against the real robot to confirm is the immediate next step, not anything further.
+
 ### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
 
 **Cleanup and documentation.** User asked to organize the project (keep only needed
