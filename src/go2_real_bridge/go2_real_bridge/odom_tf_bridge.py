@@ -9,6 +9,7 @@ ROS-standard odometry type, and unitree_ros2's bridge doesn't broadcast any TF a
 """
 
 import rclpy
+from builtin_interfaces.msg import Time
 from geometry_msgs.msg import TransformStamped
 from nav_msgs.msg import Odometry
 from rclpy.node import Node
@@ -35,7 +36,24 @@ class SportModeOdomBridge(Node):
         self.get_logger().info(f"Bridging {topic} -> /odom + {self._odom_frame}->{self._base_frame} TF")
 
     def _on_state(self, msg: SportModeState) -> None:
-        now = self.get_clock().now().to_msg()
+        # Use the ROBOT's own embedded timestamp (msg.stamp, a TimeSpec -- same
+        # sec/nanosec fields as builtin_interfaces/Time, direct copy) rather than
+        # self.get_clock().now() (this bridge's own wall-clock, i.e. the laptop's).
+        # Confirmed live: the robot's onboard clock isn't NTP-synced to the laptop
+        # and was ~27 minutes behind it -- /utlidar/cloud (and therefore /scan,
+        # since pointcloud_to_laserscan preserves input timestamps) is stamped using
+        # the robot's clock too, since that sensor's driver also runs onboard. If
+        # this bridge stamped odom->base_link TF with the laptop's clock instead,
+        # every /scan message would look "older than anything in the transform
+        # cache" to slam_toolbox and get silently dropped -- exactly what happened:
+        # zero scans ever got processed, so no map ever formed. What matters isn't
+        # matching true wall-clock time, just staying on the SAME clock basis as
+        # the lidar data slam_toolbox correlates this against.
+        #
+        # msg.stamp is a TimeSpec (Unitree's own type), not builtin_interfaces/Time --
+        # same (sec, nanosec) fields, but a different message class, so it can't be
+        # assigned directly into a header.stamp field. Build the real type explicitly.
+        now = Time(sec=msg.stamp.sec, nanosec=msg.stamp.nanosec)
 
         # Unitree's IMU quaternion array is [w, x, y, z] -- confirmed directly against
         # unitree_ros2's own example code (read_low_state.cpp explicitly labels
