@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>go2_real_bridge</name>
+  <version>0.1.0</version>
+  <description>Bridges the real Unitree Go2's SDK topics (SportModeState position/IMU, /utlidar/cloud) into standard ROS navigation inputs (nav_msgs/Odometry, odom-&gt;base_link TF, /scan) that slam_toolbox and Nav2 already expect from the simulated robot. unitree_ros2 provides the raw SDK data but publishes no TF and no standard Odometry message.</description>
+  <maintainer email="mohammad.mk012@gmail.com">kan</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <exec_depend>unitree_go</exec_depend>
+  <exec_depend>pointcloud_to_laserscan</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

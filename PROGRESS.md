@@ -1,6 +1,6 @@
 # Go2 Autonomous Natural-Language Navigation — Project Progress
 
-**Last updated:** 2026-08-31 (Session 13)
+**Last updated:** 2026-09-01 (Session 14)
 
 **End goal:** `"Go to the sofa."` → LLM/agent → semantic place lookup → Nav2 goal → autonomous
 navigation → Unitree Go2. Built and validated in simulation first, real robot later.
@@ -1006,6 +1006,67 @@ tools, so the person can later say "go to that object."
   re-explore.
 - All processes (sim, Nav2, YOLO, chat session) were shut down at the user's request;
   they're running the demo themselves going forward via `./run_go2_demo_junior.sh`.
+
+### 2026-09-01 — Session 14: real-robot 2D mapping pipeline (go2_real_bridge)
+
+User asked whether everything's ready to build a 2D map from the *real* physical Go2 —
+explicitly not moving it autonomously, driving manually with the wireless controller
+for this stage. Investigated properly rather than assuming, and it wasn't ready:
+confirmed by reading `unitree_ros2`'s actual vendored example code (not guessing) that
+the SDK bridge publishes raw sensor data (`/utlidar/cloud`, `SportModeState` with
+position/IMU) but **no TF at all and no standard `nav_msgs/Odometry`** — grepped the
+entire package for `tf2_ros`/`TransformBroadcaster`/`nav_msgs`, found nothing.
+`slam_toolbox` needs both to function. Also found `slam_junior.launch.py` hardcodes
+`use_sim_time: true`, which would make `slam_toolbox` hang forever waiting for a
+`/clock` topic that doesn't exist outside simulation.
+
+**Built `go2_real_bridge`** (new package) to close these gaps:
+- `odom_tf_bridge` node: subscribes to `/lf/sportmodestate`, publishes
+  `nav_msgs/Odometry` on `/odom` and broadcasts `odom`→`base_link` TF. Real position
+  data exists on the robot; nothing converted it into what SLAM expects. **Quaternion
+  order verified against source, not assumed**: `unitree_ros2`'s own example code
+  (`read_low_state.cpp`) explicitly labels `imu_state.quaternion[0..3]` as
+  `qw, qx, qy, qz` — Unitree's own `[w,x,y,z]` convention, not
+  `geometry_msgs/Quaternion`'s `(x,y,z,w)`. Getting this backwards would silently
+  rotate the whole map -- the same class of bug already hit once this project
+  (Session 12's initial-pose quaternion truncation). Verified the remapping with a
+  synthetic test (published a fake `SportModeState` with a deliberately
+  asymmetric test quaternion `[w,x,y,z]=[1,2,3,4]`, subscribed to `/odom`, confirmed
+  the output was exactly `x=2,y=3,z=4,w=1` as expected) rather than trusting the code
+  read-through alone.
+- Static `base_link`→`utlidar_lidar` TF using the real Unitree L1 lidar's actual
+  physical mount offset, taken from `unitree_go2_description/urdf/lidar_4D_lidar.xacro`
+  (`xyz="0.25 -0.038 -0.03"`, `rpy="2.879 0.0 1.5705"`) -- this project's simulation
+  actually uses a generic Velodyne instead, so this xacro isn't wired into anything
+  currently running, but its numbers are the manufacturer-accurate real-hardware
+  values (same mesh/name as Unitree's actual "L1 4D Lidar" product). Verified the
+  `tf2_ros static_transform_publisher` CLI's actual argument convention first
+  (`--roll --pitch --yaw`, named args matching URDF's `rpy` order directly) rather
+  than assuming from memory of older ROS versions' positional-argument style.
+- `pointcloud_to_laserscan` bridging `/utlidar/cloud` → `/scan`, reusing the exact
+  height-band parameters already proven for the simulated Velodyne
+  (`min_height: 0.05, max_height: 0.6`) -- since `target_frame: base_link` means the
+  filter operates on the *environment* height-band-of-interest after all points are
+  already transformed into `base_link`, it doesn't depend on where the real sensor is
+  physically mounted (the static TF above handles that separately).
+- New launch file `slam_real.launch.py`: bundles the static TF, `odom_tf_bridge`,
+  `pointcloud_to_laserscan`, and `slam_toolbox` (`use_sim_time: false`, reusing
+  `go2_navigation`'s existing `mapper_params_junior.yaml` unmodified -- its
+  `odom_frame`/`base_frame`/`scan_topic` params were already generic, only the
+  sim-time launch argument needed to differ).
+
+**Verified everything checkable without live hardware** (none was connected this
+session): `colcon build` clean, the node imports/starts correctly with `unitree_ros2`
+sourced, the quaternion-mapping synthetic test above, the `static_transform_publisher`
+command runs and reports the expected values, and a full dry-run of
+`slam_real.launch.py` -- all four processes (static TF, odom bridge,
+`pointcloud_to_laserscan`, `slam_toolbox`) start cleanly together with no errors.
+**Not verified, and can't be from this session**: whether the resulting map actually
+looks correct once driven around a real room with a real robot -- that's the one
+thing that genuinely needs the physical hardware.
+
+Documented in `README.md`/`USAGE.md` (new "Building a 2D map from the real robot"
+section, prerequisites + exact commands) and memory.
 
 ### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
 

@@ -74,6 +74,11 @@ Gazebo simulation  (physics, sensors: lidar, RGB-D camera)
   project-specific patches.
 - **`unitree_ros2/`** — the real-hardware DDS bridge, kept for eventually connecting to
   an actual physical Go2 (not used by either simulation demo).
+- **`src/go2_real_bridge`** — bridges the real Go2's SDK topics (position/IMU,
+  lidar) into what `slam_toolbox`/Nav2 already expect (`nav_msgs/Odometry`,
+  `odom`→`base_link` TF, `/scan`) — `unitree_ros2` provides the raw SDK data but
+  publishes no TF and no standard `Odometry` message at all. See `USAGE.md` for
+  building a 2D map from the real robot.
 
 ## Get started
 

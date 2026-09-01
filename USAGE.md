@@ -139,6 +139,43 @@ offer the known name instead of actually looking). It's the right file to edit f
 generic navigation reference points (like the existing `waypoint`/`start`), not for
 objects the camera can already find on its own.
 
+## Building a 2D map from the real robot
+
+For mapping only, driving the robot manually with the wireless controller — no
+autonomous movement, this project's controller/Nav2 stack stays out of the loop
+entirely here.
+
+1. Connect via Ethernet, set your IP to `192.168.123.99`/`255.255.255.0` on that
+   interface (see `unitree_ros2/README.md` for the exact steps).
+2. `source /home/kan/lab/course/unitree_ros2/setup.sh`
+3. Confirm real data is actually flowing before launching anything else:
+   ```bash
+   ros2 topic hz /utlidar/cloud        # the lidar
+   ros2 topic hz /lf/sportmodestate    # position/IMU
+   ```
+   If either shows nothing, stop here and fix the connection/sourcing first — the
+   rest of this won't produce a useful map otherwise.
+4. `ros2 launch go2_real_bridge slam_real.launch.py`
+5. Drive the robot around with the wireless controller to sweep the lidar through the
+   space. Watch it build up in RViz (`ros2 run rviz2 rviz2`, add a `Map` display on
+   `/map`) if you want to see it live.
+6. Save the map once you're happy with it, same as any other `slam_toolbox` map:
+   ```bash
+   ros2 run nav2_map_server map_saver_cli -f my_map_name
+   ```
+
+`go2_real_bridge` exists because `unitree_ros2`'s SDK bridge gives you raw sensor data
+(`/utlidar/cloud`, `SportModeState`) but no `/tf` and no standard `nav_msgs/Odometry` —
+`slam_toolbox` needs both. It converts `SportModeState`'s position/IMU into a proper
+`Odometry` publish and `odom`→`base_link` TF broadcast, publishes the real lidar's
+physical mounting offset as a static TF, and bridges the 3D point cloud down to a 2D
+`/scan` the same way the simulated robot's `pointcloud_to_laserscan` already does.
+None of this has been run against actual hardware yet (no physical robot was
+connected during development) — every piece was verified structurally (starts
+cleanly, correct message wiring, a synthetic test confirming the quaternion mapping
+is exactly right) but the *live* result — does the map actually come out looking like
+the real room — is the one thing that still needs a real run to confirm.
+
 ## Known rough edges
 
 - **Gemini free-tier rate limits (429).** Wait a bit and try again, or switch models
