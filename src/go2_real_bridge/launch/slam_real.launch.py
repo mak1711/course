@@ -76,14 +76,18 @@ def generate_launch_description():
                 "use_sim_time": False,
                 "target_frame": "base_link",
                 "transform_tolerance": 0.05,
-                # Same height band as the simulated Velodyne's config
-                # (unitree_go2_nav_bringup.launch.py) -- this filters the
-                # *environment* height-band-of-interest in base_link frame after
-                # pointcloud_to_laserscan already transforms every point there, so it
-                # doesn't depend on where the real sensor itself is physically
-                # mounted (that's handled separately by the static TF above).
-                "min_height": 0.05,
-                "max_height": 0.6,
+                # NOT the same band as the simulated Velodyne (that sensor sits flat
+                # on top of the robot, so obstacles show up above base_link). The
+                # real L1's mount has a steep pitch (~165 deg, see the static TF
+                # above) so it looks mostly forward-and-down: measured live against
+                # the real robot, transforming the raw cloud into base_link showed
+                # 92.6% of points landing in z=[-0.6,-0.05] and only 2.9% in the old
+                # [0.05,0.6] sim band -- that's why the first real run's /scan had
+                # only ~13/723 finite rays (near-empty, not a fragmentation issue,
+                # that was fixed separately in unitree_ros2/setup.sh). Widened to
+                # match where the real data actually is.
+                "min_height": -0.6,
+                "max_height": -0.05,
                 "angle_min": -3.14159265,
                 "angle_max": 3.14159265,
                 "angle_increment": 0.0087,
