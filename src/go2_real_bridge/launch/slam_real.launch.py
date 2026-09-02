@@ -3,21 +3,29 @@ Drive the robot yourself with the wireless controller while this runs; slam_tool
 builds the map from real sensor data as you go.
 
 Brings up everything unitree_ros2's own SDK bridge doesn't provide: real odometry +
-TF (go2_real_bridge's odom_tf_bridge, from SportModeState -- unitree_ros2 publishes no
-TF and no standard Odometry message at all), the static base_link -> utlidar_lidar
-transform (the real Unitree L1 lidar's physical mount offset, taken from
-unitree_go2_description's lidar_4D_lidar.xacro -- the same manufacturer-accurate value
-used for the *simulated* L1 model, not a guess), a pointcloud_to_laserscan bridge from
-the real 3D lidar cloud to a 2D /scan, and slam_toolbox itself (reusing
-go2_navigation's mapper_params_junior.yaml unmodified -- its frame/topic names were
-already generic, only use_sim_time needs to be false here since there's no /clock
-outside simulation).
+TF (go2_real_bridge's odom_tf_bridge, republishing /utlidar/robot_odom -- the SDK's
+own onboard, lidar-corrected odometry estimate, already a standard nav_msgs/Odometry
+with frame_id=odom/child_frame_id=base_link -- since unitree_ros2's bridge itself
+publishes no TF and no standard Odometry message at all), a pointcloud_to_laserscan
+bridge from /utlidar/cloud_base (the SDK's own point cloud, already transformed into
+base_link -- no static sensor-mount TF needed) to a 2D /scan, and slam_toolbox itself
+(reusing go2_navigation's mapper_params_junior.yaml unmodified -- its frame/topic
+names were already generic, only use_sim_time needs to be false here since there's no
+/clock outside simulation).
+
+This is the second version of this pipeline. The first one reconstructed odometry from
+/lf/sportmodestate (raw leg/IMU state, manual quaternion remap + timestamp fix) and
+fed pointcloud_to_laserscan the raw /utlidar/cloud through a hand-measured static TF.
+That worked with the robot sitting still but produced a jumbled map once actually
+driven around -- raw SportModeState isn't lidar-corrected, and a hand-measured static
+TF accumulates rotation error every time the robot turns. Switched to the SDK's own
+/utlidar/robot_odom and /utlidar/cloud_base, which don't have either problem.
 
 Prerequisites (not started by this launch file):
   1. Physically connect the robot via Ethernet, set your IP to 192.168.123.99/24.
   2. source /home/kan/lab/course/unitree_ros2/setup.sh
-  3. Confirm real topics are flowing: `ros2 topic hz /utlidar/cloud` and
-     `ros2 topic hz /lf/sportmodestate` should both show real data before launching.
+  3. Confirm real topics are flowing: `ros2 topic hz /utlidar/cloud_base` and
+     `ros2 topic hz /utlidar/robot_odom` should both show real data before launching.
 
 Then: `ros2 launch go2_real_bridge slam_real.launch.py`, drive the robot around with
 the wireless controller to sweep the lidar through the space, and once you're happy
@@ -40,29 +48,10 @@ def generate_launch_description():
         "config", "mapper_params_junior.yaml")
     slam_toolbox_share = get_package_share_directory("slam_toolbox")
 
-    # Real Unitree L1 lidar's physical mount offset relative to base_link -- from
-    # unitree_go2_description/urdf/lidar_4D_lidar.xacro's lidar_l1_joint, the same
-    # manufacturer-accurate value used for the *simulated* L1 model (this project's
-    # simulation actually uses a generic Velodyne instead, so this xacro isn't wired
-    # into anything currently running, but its numbers describe the real hardware).
-    # Child frame name matches the real SDK's actual published frame_id
-    # ("utlidar_lidar", confirmed via unitree_ros2's own README/`ros2 topic echo`),
-    # not the xacro's internal "lidar_l1_link" naming.
-    static_tf_lidar = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        name="base_link_to_lidar",
-        arguments=[
-            "--x", "0.25", "--y", "-0.038", "--z", "-0.03",
-            "--roll", "2.879", "--pitch", "0.0", "--yaw", "1.5705",
-            "--frame-id", "base_link", "--child-frame-id", "utlidar_lidar",
-        ],
-    )
-
     odom_tf_bridge = Node(
         package="go2_real_bridge",
         executable="odom_tf_bridge",
-        name="sportmode_odom_bridge",
+        name="robot_odom_bridge",
         output="screen",
     )
 
@@ -76,29 +65,42 @@ def generate_launch_description():
                 "use_sim_time": False,
                 "target_frame": "base_link",
                 "transform_tolerance": 0.05,
-                # NOT the same band as the simulated Velodyne (that sensor sits flat
-                # on top of the robot, so obstacles show up above base_link). The
-                # real L1's mount has a steep pitch (~165 deg, see the static TF
-                # above) so it looks mostly forward-and-down: measured live against
-                # the real robot, transforming the raw cloud into base_link showed
-                # 92.6% of points landing in z=[-0.6,-0.05] and only 2.9% in the old
-                # [0.05,0.6] sim band -- that's why the first real run's /scan had
-                # only ~13/723 finite rays (near-empty, not a fragmentation issue,
-                # that was fixed separately in unitree_ros2/setup.sh). Widened to
-                # match where the real data actually is.
+                # /utlidar/cloud_deskewed (not /utlidar/cloud_base): cloud_base gives
+                # one static pose per ~65ms scan sweep, with no correction for robot
+                # motion *during* that sweep -- fine stationary, but exactly the kind
+                # of thing that smears/jumbles a moving robot's map. cloud_deskewed is
+                # the SDK's own motion-corrected version of the same data (published
+                # in "odom" frame; pointcloud_to_laserscan transforms it into
+                # target_frame=base_link via TF before height-filtering, same as any
+                # other source frame, so the height band below still applies in
+                # base_link coordinates same as it did for cloud_base). Measured live:
+                # 79.2% of cloud_base's points land in z=[-0.6,-0.05], only 1.6% in
+                # [0.05,0.6] (the simulated flat-mounted Velodyne's band -- doesn't
+                # apply here, the real L1's mount looks mostly forward-and-down).
                 "min_height": -0.6,
                 "max_height": -0.05,
                 "angle_min": -3.14159265,
                 "angle_max": 3.14159265,
                 "angle_increment": 0.0087,
                 "scan_time": 0.1,
-                "range_min": 0.5,
+                # range_min raised from 0.3 to 1.0: with the height band above, a
+                # live scan (robot rotating in place) showed returns clustered at
+                # 0.36-0.82m at nearly every angle, regardless of heading -- too
+                # close and too uniform to be room walls. That's the floor: the L1's
+                # steep downward mount tilt makes the beam intersect the nearby floor
+                # at roughly the same short range no matter which way the robot
+                # faces, and the height band alone doesn't separate "floor, close"
+                # from "wall, far" since both can land in the same base_link z slice
+                # depending on gait/pitch. Cutting off everything under 1m rejects
+                # that floor band outright; real wall/furniture returns (confirmed
+                # earlier: meaningful point counts out past 1.5-3m) are unaffected.
+                "range_min": 1.0,
                 "range_max": 20.0,
                 "use_inf": True,
                 "concurrency_level": 1,
             }
         ],
-        remappings=[("cloud_in", "/utlidar/cloud"), ("scan", "/scan")],
+        remappings=[("cloud_in", "/utlidar/cloud_deskewed"), ("scan", "/scan")],
     )
 
     slam = IncludeLaunchDescription(
@@ -116,7 +118,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        static_tf_lidar,
         odom_tf_bridge,
         pointcloud_to_laserscan,
         slam,
