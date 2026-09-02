@@ -1225,6 +1225,63 @@ better-defined boundary) at the point testing stopped, not yet a complete, clean
 room map -- continuing to drive around (more coverage, more loop closures) is the
 next step, not further code changes, unless new artifacts show up with more data.
 
+**Update (2026-09-02): resumed, added live RViz view, found and fixed a real bug,
+but the starburst pattern turned out NOT to be range-filtering-related after all.**
+
+Added a dedicated RViz config + launch file (`config/real_mapping.rviz`,
+`launch/rviz_real.launch.py`) showing `/map`, live `/scan`, the raw point cloud, and
+TF/odom -- pure visualization, run alongside `slam_real.launch.py` in a separate
+terminal, no new publishers that could affect the robot.
+
+User asked pointed technical questions that redirected the investigation
+productively: (1) is L1-specific point cloud noise/filtering accounted for, (2) are
+lidar-to-base_link transforms handled correctly, (3) can the IMU be used as an extra
+pose measurement. Investigating (1) led to a real find: **88.4% of every
+`/utlidar/cloud_deskewed` message (10000 of ~11300 points) is literal `(0,0,0)`
+padding**, not marked NaN, so nothing filters it out. Since the message's frame_id is
+"odom", `pointcloud_to_laserscan` transforms those garbage points from odom into
+base_link using the current TF -- placing every one of them at "current position
+relative to the odom origin," i.e. pointing back at the robot's start position from
+wherever it currently is. As the robot moves, that produces a spike converging on a
+fixed point from every direction -- a fully mechanistic explanation for the
+radiating-starburst pattern. Verified `/utlidar/cloud_base` has zero degenerate
+points and reverted to it (was already the right call independently, per the
+"motion-smearing" concern that motivated trying `cloud_deskewed` never actually being
+confirmed as real).
+
+User separately (and correctly) suspected the robot's own legs/body were being
+detected as obstacles, given objects were showing up unrealistically close in the
+map. Investigated with a live range histogram of height-band-filtered points (127k
+points sampled, 0.3m bins out to 3m): found an enormous, dominant cluster at
+0.3-0.9m -- **60% of all points** -- spread across nearly the robot's entire visible
+~210 degree FOV (not confined to one direction, ruling out a simple floor-intersection
+explanation), with tightly clustered height (-0.2 to -0.35m). Real environment
+returns show up as a much flatter, lower-count tail from ~1.0-2.5m. This is almost
+certainly leg self-hits: legs at multiple body-relative positions, height-consistent,
+too close and too angularly spread to be room features. Set `range_min` to 0.4m
+(user's requested value, matching the robot's static footprint dimension) -- though
+noted at the time that the self-hit cluster's live-measured extent (0.3-0.9m) is
+wider than 0.4m, since a leg mid-stride reaches further than the resting body outline.
+
+**Important negative result**: `range_min` was tested at 1.0m (fully past the
+self-hit cluster, with the already-clean `cloud_base` source) in three separate map
+snapshots, and then at 0.4m -- all four produced visually indistinguishable starburst
+maps. If completely excluding the dominant self-hit population made no visible
+difference to the map's fundamental shape, self-hits are very likely NOT the (sole)
+cause after all, despite being a real, confirmed, worth-keeping-excluded phenomenon
+in the data. **Every fix attempted across this and the previous update produced the
+same starburst character**: floor-band tuning, FOV/self-occlusion analysis, SDK-native
+odometry, motion-deskewed cloud, the padding-bug fix, and the full range_min sweep
+from 0.3 up through 1.0 back down to 0.4. That consistency across totally unrelated
+fixes points away from point-cloud contamination/filtering as the dominant cause and
+toward **slam_toolbox's own scan-matching behavior** (`mapper_params_junior.yaml`,
+written for clean simulated data via `go2_navigation`'s other mapper configs, never
+independently tuned for real, noisier hardware) as the next thing to investigate --
+specifically `correlation_search_space_dimension`, `minimum_travel_distance`/
+`minimum_travel_heading`, and the `distance_variance_penalty`/`angle_variance_penalty`
+scan-matcher weights. Not yet started; user stopped the session before this could be
+explored live.
+
 ### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
 
 **Cleanup and documentation.** User asked to organize the project (keep only needed
