@@ -65,42 +65,63 @@ def generate_launch_description():
                 "use_sim_time": False,
                 "target_frame": "base_link",
                 "transform_tolerance": 0.05,
-                # /utlidar/cloud_deskewed (not /utlidar/cloud_base): cloud_base gives
-                # one static pose per ~65ms scan sweep, with no correction for robot
-                # motion *during* that sweep -- fine stationary, but exactly the kind
-                # of thing that smears/jumbles a moving robot's map. cloud_deskewed is
-                # the SDK's own motion-corrected version of the same data (published
-                # in "odom" frame; pointcloud_to_laserscan transforms it into
-                # target_frame=base_link via TF before height-filtering, same as any
-                # other source frame, so the height band below still applies in
-                # base_link coordinates same as it did for cloud_base). Measured live:
-                # 79.2% of cloud_base's points land in z=[-0.6,-0.05], only 1.6% in
-                # [0.05,0.6] (the simulated flat-mounted Velodyne's band -- doesn't
-                # apply here, the real L1's mount looks mostly forward-and-down).
+                # /utlidar/cloud_base, NOT /utlidar/cloud_deskewed. cloud_deskewed was
+                # tried (motion-corrected for the ~65ms scan integration window, in
+                # case that explained the map jumbling while driving) but turned out
+                # to have a serious bug: measured live, 88.4% of every cloud_deskewed
+                # message (10000 of ~11300 points) is literal (0,0,0) padding -- not
+                # marked NaN, so nothing filters it out. Since the message's frame_id
+                # is "odom", pointcloud_to_laserscan transforms those (0,0,0) points
+                # from odom into base_link using the current TF -- which places every
+                # single one of them at "current position relative to the odom
+                # origin," i.e. pointing back at wherever the robot started, from
+                # wherever it currently is. As the robot moves to different poses,
+                # that produces a spike/ray converging on the same fixed point from
+                # every direction -- this was the actual cause of the persistent
+                # radiating-starburst pattern in the map, confirmed by cross-checking
+                # cloud_deskewed's points (transformed into base_link) against
+                # cloud_base's natively-reported points at the same instant, with the
+                # robot stationary: cloud_base's real point count (~1050-1600) closely
+                # matches cloud_deskewed's non-zero fraction, and cloud_base has zero
+                # degenerate (0,0,0) points. Went back to cloud_base; the motion-
+                # smearing concern that motivated trying cloud_deskewed was never
+                # actually confirmed as a real problem, unlike this padding bug.
+                # Measured live: 79.2% of cloud_base's points land in z=[-0.6,-0.05],
+                # only 1.6% in [0.05,0.6] (the simulated flat-mounted Velodyne's band
+                # -- doesn't apply here, the real L1's mount looks mostly
+                # forward-and-down).
                 "min_height": -0.6,
                 "max_height": -0.05,
                 "angle_min": -3.14159265,
                 "angle_max": 3.14159265,
                 "angle_increment": 0.0087,
                 "scan_time": 0.1,
-                # range_min raised from 0.3 to 1.0: with the height band above, a
-                # live scan (robot rotating in place) showed returns clustered at
-                # 0.36-0.82m at nearly every angle, regardless of heading -- too
-                # close and too uniform to be room walls. That's the floor: the L1's
-                # steep downward mount tilt makes the beam intersect the nearby floor
-                # at roughly the same short range no matter which way the robot
-                # faces, and the height band alone doesn't separate "floor, close"
-                # from "wall, far" since both can land in the same base_link z slice
-                # depending on gait/pitch. Cutting off everything under 1m rejects
-                # that floor band outright; real wall/furniture returns (confirmed
-                # earlier: meaningful point counts out past 1.5-3m) are unaffected.
-                "range_min": 1.0,
+                # range_min: user-set to 0.4m, matching the Go2's own physical
+                # footprint dimension (points closer than the robot's own body can't
+                # be real environment). Previously 1.0m (raised from 0.3m to reject
+                # floor-plane returns). A live range histogram of in-band points
+                # (0.3s bins out to 3m) showed an enormous, dominant cluster at
+                # 0.3-0.9m -- 60% of ALL points, 127k sampled -- almost certainly
+                # self-hits off the robot's own legs (wide angular spread across
+                # nearly the whole visible FOV, not a single directional floor
+                # pattern; tightly clustered height -0.2 to -0.35m). Real
+                # environment returns look like the much flatter, lower-count tail
+                # from ~1.0m to 2.5m. 0.4m matches the robot's static footprint, but
+                # note: the self-hit cluster's live-measured extent (0.3-0.9m) is
+                # WIDER than that -- a leg mid-stride reaches further than the
+                # robot's resting body dimension -- so 0.4m is unlikely to fully
+                # exclude leg contamination. If that shows up in the map, the real
+                # fix is a proper footprint-based self-filter (exclude points by
+                # robot-relative x/y position, not just range), not a bigger range
+                # cutoff, since this project also needs to detect genuinely close
+                # walls in a narrow corridor.
+                "range_min": 0.4,
                 "range_max": 20.0,
                 "use_inf": True,
                 "concurrency_level": 1,
             }
         ],
-        remappings=[("cloud_in", "/utlidar/cloud_deskewed"), ("scan", "/scan")],
+        remappings=[("cloud_in", "/utlidar/cloud_base"), ("scan", "/scan")],
     )
 
     slam = IncludeLaunchDescription(
