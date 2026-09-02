@@ -1160,6 +1160,71 @@ might be better-suited, purpose-built alternatives to the current raw-cloud +
 custom-odom-bridge approach -- worth a look if further real-hardware odometry/mapping
 quality issues come up.
 
+**Update (2026-09-02): driving-around test failed ("jumbled on itself"), root-caused
+and fixed with two more changes.** User drove the (stationary-verified) pipeline
+around and reported the map was "very far from the true map" -- sparse rays, drifting
+odometry, jumbled on top of itself. Diagnosed live against the reconnected robot
+(again read-only: passive pipeline + subscriptions only, no commands sent).
+
+**Change 1 -- switched from the custom odometry bridge to the SDK's own
+`/utlidar/robot_odom`.** Investigating the previously-unexplored SDK topics flagged
+above, found `/utlidar/robot_odom` is already a full `nav_msgs/Odometry` at ~148Hz,
+correctly named (`frame_id=odom`, `child_frame_id=base_link`) with a standard
+`(x,y,z,w)` quaternion -- no remapping or timestamp conversion needed at all, unlike
+the hand-built bridge from raw `SportModeState`. Rewrote `odom_tf_bridge` to just
+republish it under `/odom` and broadcast the matching TF. This didn't fix the jumbling
+by itself (confirmed by testing before the next change), but is simpler and more
+likely accurate under real motion than reconstructing odometry from unfused leg/IMU
+state, so kept regardless.
+
+**Change 2 -- found and fixed the real cause: floor contamination, not FOV or
+odometry.** Ran a live diagnostic while the user rotated the robot in place: printed
+actual `/scan` range values across the full angular sweep (not just point density).
+Nearly every real return clustered at 0.36-0.82m *at every angle*, regardless of which
+way the robot faced -- far too close and too uniform to be room walls. Root cause: the
+real L1 lidar's mount has a very steep pitch (~165 degrees, terrain-sensing-oriented
+hardware, not a flat horizontal 2D-lidar mount), so the beam intersects the *floor* at
+a roughly constant short distance in almost every direction. The height-band filter
+alone (`min_height`/`max_height` in `base_link`) can't separate "floor, close" from
+"wall, far" because both land in the same z-slice depending on the robot's gait-cycle
+body pitch. This is what the earlier "confirmed 92.6% of points in the height band"
+finding actually was measuring -- not a wall-height signal, floor noise dominating the
+band. **Fixed** by raising `pointcloud_to_laserscan`'s `range_min` from 0.3m to 1.0m,
+rejecting the floor band outright. Also switched the point cloud source from
+`/utlidar/cloud_base` (one static pose per ~65ms scan sweep, no correction for robot
+motion during that sweep) to `/utlidar/cloud_deskewed` (the SDK's motion-corrected
+version) as a secondary improvement for accuracy while driving, though this alone
+didn't fix the floor issue either -- confirmed the starburst pattern persisted with
+cloud_deskewed + the old range_min, only clearing up once range_min was raised.
+
+**Verified live, progressively, via saved map snapshots (PNG) during actual driving**:
+before the range_min fix, the map was a disconnected pattern of thin lines radiating
+from a central point with no enclosed area -- exactly what near-uniform close-range
+floor noise logged at each new robot pose would produce. After the fix, raw scan
+ranges shifted to coherent 1.0-1.6m clusters (consistent with real wall/furniture
+distances), and the accumulated map progressively grew into a genuine rounded
+free-space region with an occupied boundary as the robot was driven around --
+qualitatively correct room shape forming, some thin spike artifacts still present
+(may be real doorway sightlines into the adjacent room, or residual noise -- not yet
+determined). Committed and pushed (`5aa76de`).
+
+**Also found, not a bug**: across every test this session, the real L1's effective FOV
+(once transformed to `base_link`) consistently covers only ~210 degrees
+(`-120°` to `+90°`-ish) with near-zero returns in the rear ~150 degrees, regardless of
+odometry source, cloud source, or the robot's actual heading at the time. Consistent
+with the robot's own body physically occluding the sensor's rear view (front/head
+mount). Not fixable in software; the operational workaround is driving/turning through
+the space so every wall eventually falls within that arc from some vantage point,
+rather than relying on in-place spins alone -- which also isn't always practical with
+a tethered Ethernet cable limiting rotation range (learned live: user reported the
+cable prevents continuous full spins).
+
+**Still open**: session ended with the robot disconnecting (user stopping for the
+day, cable-tethered testing). The map was visibly still improving (more coverage,
+better-defined boundary) at the point testing stopped, not yet a complete, clean
+room map -- continuing to drive around (more coverage, more loop closures) is the
+next step, not further code changes, unless new artifacts show up with more data.
+
 ### 2026-08-31 — Session 13: project cleanup/docs, git catastrophe + recovery, capability-gap tools
 
 **Cleanup and documentation.** User asked to organize the project (keep only needed
